@@ -88,7 +88,6 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/srvc-commercial-brick-restoration.jpeg", "Commercial brick façade", "brick-repointing"),
   img("/assets/pic/images.jpg", "Brick pointing sample", "brick-repointing"),
   img("/assets/pic/images (1).jpg", "Brickwork sample", "brick-repointing"),
-  img("/pic/images.jpg", "Brick texture sample", "brick-repointing"),
 
   img("/assets/pressure-washing/pw-1.jpg", "Cleaned brick surface", "chemical-cleaning", { featured: true }),
   img("/assets/pressure-washing/pw-2.jpg", "Brick after washing", "chemical-cleaning", { featured: true }),
