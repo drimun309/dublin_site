@@ -53,9 +53,9 @@ export function Footer() {
       </div>
       <div className="footer-base">
         <p>© {year} {site.name}. All rights reserved.</p>
-        <Link className="to-top" href="/">
+        <a className="to-top" href="#top">
           Back to top
-        </Link>
+        </a>
       </div>
     </footer>
   );
