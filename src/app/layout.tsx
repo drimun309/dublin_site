@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Serif, Sora } from "next/font/google";
+import { PageBodyClass } from "@/shared/ui";
 import "@/shared/styles/globals.css";
 
 const sora = Sora({
@@ -35,10 +36,18 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.ico" },
 };
 
+const themeScript = `(()=>{const s=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",s||"light");})();`;
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${serif.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${sora.variable} ${serif.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
+      <body>
+        <PageBodyClass />
+        {children}
+      </body>
     </html>
   );
 }

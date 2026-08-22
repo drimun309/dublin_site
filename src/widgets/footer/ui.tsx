@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
-import { services } from "@/entities/service";
+import { usePathname } from "next/navigation";
+import { servicesPageSlugs, getService } from "@/entities/service";
 import { site } from "@/shared/config";
 
 export function Footer() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const year = new Date().getFullYear();
 
   return (
@@ -43,19 +48,25 @@ export function Footer() {
         <div>
           <h3>Services</h3>
           <ul>
-            {services.map((service) => (
-              <li key={service.slug}>
-                <Link href={`/services#${service.slug}`}>{service.shortTitle}</Link>
-              </li>
-            ))}
+            {servicesPageSlugs.map((slug) => {
+              const service = getService(slug);
+              const label = slug === "chemical-cleaning" ? "Chemical Cleaning" : service.title;
+              return (
+                <li key={slug}>
+                  <Link href={`/services#${slug}`}>{label}</Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
       <div className="footer-base">
-        <p>© {year} {site.name}. All rights reserved.</p>
-        <a className="to-top" href="#top">
-          Back to top
-        </a>
+        <p>
+          © {year} {site.name}. All rights reserved.
+        </p>
+        <Link className="to-top" href={isHome ? "/#top" : "/"}>
+          Back to {isHome ? "top" : "home"}
+        </Link>
       </div>
     </footer>
   );

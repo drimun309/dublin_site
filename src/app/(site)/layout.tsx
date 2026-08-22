@@ -6,7 +6,6 @@ import { StickyCall } from "@/widgets/sticky-call";
 export default function SiteLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <span id="top" />
       <a className="skip" href="#main">
         Skip to content
       </a>

@@ -58,7 +58,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="hero" ref={heroRef}>
+    <section className="hero" id="top" ref={heroRef}>
       <div className="hero-media" aria-hidden="true">
         <video
           className="hero-video"

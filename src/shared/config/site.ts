@@ -5,7 +5,7 @@ export const site = {
   phoneHref: "tel:0852526220",
   phoneAlt: "01 902 2705",
   phoneAltHref: "tel:019022705",
-  email: "repointingdublin@mail.com",
+  email: "restorationindublin@gmail.com",
   facebook: "https://www.facebook.com/repointingdublin/",
   hoursWeek: "Mon–Sat: 8am–6pm",
   hoursSun: "Sun: Emergency only",

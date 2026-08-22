@@ -153,7 +153,7 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/flat-roof/flat-14.jpg", "New-build flat roof", "flat-roof"),
   img("/assets/flat-roof/flat-15.jpg", "Flat roof after repair", "flat-roof"),
 
-  img("/assets/pic/otto/otto-01.jpg", "Inspecting brickwork on a Dublin home", "craft", { home: true }),
+  img("/assets/pic/otto/otto-01.jpg", "Inspecting brickwork on a Dublin home", "craft"),
   otto(2, "craft"),
   otto(3, "craft"),
   ...[4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32].map(
@@ -170,9 +170,18 @@ export function imagesForService(slug: ServiceSlug, featuredOnly = false) {
   );
 }
 
+const homeGalleryOrder: GalleryImage[] = [
+  img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
+  img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
+  img("/assets/brick-repointing/29-ba-arch.jpg", "Brick arch restoration", "brick-repointing"),
+  img("/assets/brick-restoration/02-ba-spalling.jpg", "Spalling brick repair", "brick-restoration"),
+  img("/assets/gallery/brick-patch.jpg", "Repaired brick panel on weathered wall", "brick-restoration"),
+  img("/assets/gallery/spalling-stairs.jpg", "Spalling brick under concrete stairs", "brick-restoration"),
+  img("/assets/gallery/brick-steps.jpg", "New brick and stone entrance steps", "brick-restoration"),
+];
+
 export function homeGalleryImages() {
-  const picked = galleryImages.filter((item) => item.home);
-  return picked.length ? picked : galleryImages.filter((item) => item.featured).slice(0, 8);
+  return homeGalleryOrder;
 }
 
 export function workImages(filter: ServiceSlug | "all" | "craft") {

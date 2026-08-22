@@ -175,6 +175,22 @@ export const services: Service[] = [
   },
 ];
 
+export const servicesPageSlugs: ServiceSlug[] = [
+  "brick-restoration",
+  "brick-repointing",
+  "chemical-cleaning",
+  "chimney-restoration",
+  "fireplace-remodel",
+];
+
+export const formServiceTitles = [
+  "Brick Repointing",
+  "Brick Restoration",
+  "Chemical Cleaning",
+  "Chimney Restoration",
+  "Fireplace Remodel",
+] as const;
+
 export const homeServiceSlugs: ServiceSlug[] = [
   "brick-repointing",
   "brick-restoration",
@@ -187,6 +203,10 @@ export const extraServiceSlugs: ServiceSlug[] = [
   "roofing",
   "flat-roof",
 ];
+
+export function getServicesPageServices() {
+  return servicesPageSlugs.map((slug) => getService(slug));
+}
 
 export function getService(slug: ServiceSlug) {
   const service = services.find((item) => item.slug === slug);

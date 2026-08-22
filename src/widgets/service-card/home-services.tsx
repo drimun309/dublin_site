@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { extraServiceSlugs, getService, homeServiceSlugs } from "@/entities/service";
+import { getService, homeServiceSlugs } from "@/entities/service";
 import { Reveal } from "@/shared/ui";
 
 export function HomeServices() {
@@ -44,7 +44,7 @@ export function HomeServices() {
                     </Link>
                     <div className="service-card-body">
                       <h3>
-                        <Link href={`/services#${slug}`}>{service.title}</Link>
+                        <Link href={`/services#${slug}`}>{service.shortTitle}</Link>
                       </h3>
                       <p>{card.summary}</p>
                       <Link className="service-more" href={`/services#${slug}`}>
@@ -56,17 +56,6 @@ export function HomeServices() {
               );
             })}
           </div>
-          <p className="also-services">
-            Also:{" "}
-            {extraServiceSlugs.map((slug) => {
-              const service = getService(slug);
-              return (
-                <Link key={slug} href={`/services#${slug}`}>
-                  {service.shortTitle.toLowerCase()}
-                </Link>
-              );
-            })}
-          </p>
           <Reveal>
             <p className="services-all">
               <Link className="btn btn-ghost-ink" href="/services">

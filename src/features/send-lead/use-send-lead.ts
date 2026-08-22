@@ -6,7 +6,7 @@ import { site } from "@/shared/config";
 
 export function useSendLead() {
   const [pending, setPending] = useState(false);
-  const [note, setNote] = useState("We’ll store this request and get back to you — or call for a faster reply.");
+  const [note, setNote] = useState("We’ll store this request and get back to you — or call us for a faster reply.");
   const [ok, setOk] = useState(false);
   const [error, setError] = useState(false);
 

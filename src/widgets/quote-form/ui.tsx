@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
-import { services } from "@/entities/service";
+import { formServiceTitles } from "@/entities/service";
 import { useSendLead } from "@/features/send-lead";
 import { Reveal } from "@/shared/ui";
 
@@ -54,9 +54,9 @@ export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
                 <option value="" disabled>
                   Select a service
                 </option>
-                {services.map((service) => (
-                  <option key={service.slug} value={service.title}>
-                    {service.title}
+                {formServiceTitles.map((title) => (
+                  <option key={title} value={title}>
+                    {title}
                   </option>
                 ))}
                 <option value="Other">Other</option>
