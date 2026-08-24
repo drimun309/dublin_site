@@ -107,6 +107,9 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/chimney/repair.jpg", "Brick chimney repair", "chimney-restoration", { featured: true }),
   img("/assets/chimney/repairs.jpeg", "Chimney repairs", "chimney-restoration"),
   img("/assets/chimney/roof.jpg", "Chimney on roof", "chimney-restoration", { featured: true }),
+  img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration", {
+    featured: true,
+  }),
   img("/assets/chimney/tuckpoint.jpg", "Chimney tuckpointing", "chimney-restoration", { featured: true }),
 
   img("/assets/fireplace/fp-1.jpg", "Stone fireplace", "fireplace-remodel", { featured: true }),
@@ -173,6 +176,7 @@ export function imagesForService(slug: ServiceSlug, featuredOnly = false) {
 const homeGalleryOrder: GalleryImage[] = [
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
+  img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration"),
   img("/assets/brick-repointing/29-ba-arch.jpg", "Brick arch restoration", "brick-repointing"),
   img("/assets/brick-restoration/02-ba-spalling.jpg", "Spalling brick repair", "brick-restoration"),
   img("/assets/gallery/brick-patch.jpg", "Repaired brick panel on weathered wall", "brick-restoration"),
