@@ -22,12 +22,6 @@ export function Footer() {
           <h3>Contact</h3>
           <ul>
             <li>
-              <a href={site.phoneHref}>{site.phone}</a>
-            </li>
-            <li>
-              <a href={site.phoneAltHref}>{site.phoneAlt}</a>
-            </li>
-            <li>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </li>
             <li>

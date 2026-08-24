@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
   if (!hasSupabaseConfig()) {
     return NextResponse.json(
-      { message: `Could not save the request — call ${site.phone}.` },
+      { message: `Could not save the request — email ${site.email}.` },
       { status: 503 },
     );
   }
@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
-      { message: `Could not save the request — call ${site.phone}.` },
+      { message: `Could not save the request — email ${site.email}.` },
       { status: 500 },
     );
   }

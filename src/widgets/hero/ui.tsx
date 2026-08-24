@@ -103,8 +103,8 @@ export function Hero() {
           <Link className="btn btn-solid" href="/#quote">
             Request a free quote
           </Link>
-          <a className="btn btn-ghost" href={site.phoneHref}>
-            Call now
+          <a className="btn btn-ghost" href={`mailto:${site.email}`}>
+            Email us
           </a>
         </div>
       </div>

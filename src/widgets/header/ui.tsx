@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { useMobileNav } from "@/features/mobile-nav";
 import { useThemeToggle } from "@/features/theme-toggle";
 import { site } from "@/shared/config";
-import { PhoneIcon } from "@/shared/ui";
 
 const homeLinks = [
   { href: "/services", label: "Services" },
@@ -76,10 +75,6 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <a className="phone-link" href={site.phoneHref}>
-            <PhoneIcon />
-            {site.phone}
-          </a>
           <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Switch theme" aria-pressed={dark}>
             {label}
           </button>
@@ -114,9 +109,9 @@ export function Header() {
         >
           {label}
         </button>
-        <a className="btn btn-solid" href={site.phoneHref}>
-          Call {site.phone}
-        </a>
+        <Link className="btn btn-solid" href="/#quote" onClick={close}>
+          Free quote
+        </Link>
       </div>
     </header>
   );
