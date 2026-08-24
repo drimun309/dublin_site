@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useMobileNav } from "@/features/mobile-nav";
-import { useThemeToggle } from "@/features/theme-toggle";
+import { MoonIcon, SunIcon, useThemeToggle } from "@/features/theme-toggle";
 import { site } from "@/shared/config";
 
 const homeLinks = [
@@ -39,6 +39,7 @@ export function Header() {
   const scrolled = !isHome || homeScrolled;
   const { open, toggle, close } = useMobileNav();
   const { label, dark, toggle: toggleTheme } = useThemeToggle();
+  const themeIcon = dark ? <SunIcon /> : <MoonIcon />;
   const mobileLinks = isServices ? servicesMobileLinks : isHome ? homeLinks : innerLinks;
 
   useEffect(() => {
@@ -75,8 +76,8 @@ export function Header() {
         </nav>
 
         <div className="header-actions">
-          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Switch theme" aria-pressed={dark}>
-            {label}
+          <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={label} aria-pressed={dark}>
+            {themeIcon}
           </button>
           <Link className="btn btn-solid btn-sm" href="/#quote">
             Free quote
@@ -104,10 +105,11 @@ export function Header() {
           className="theme-toggle theme-toggle-mobile"
           type="button"
           onClick={toggleTheme}
-          aria-label="Switch theme"
+          aria-label={label}
           aria-pressed={dark}
         >
-          {label}
+          {themeIcon}
+          <span>{dark ? "Light mode" : "Dark mode"}</span>
         </button>
         <Link className="btn btn-solid" href="/#quote" onClick={close}>
           Free quote

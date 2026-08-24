@@ -14,5 +14,9 @@ export function useThemeToggle() {
     setDark(!dark);
   };
 
-  return { dark, toggle, label: dark ? "Light" : "Dark" };
+  return {
+    dark,
+    toggle,
+    label: dark ? "Switch to light theme" : "Switch to dark theme",
+  };
 }

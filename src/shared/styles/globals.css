@@ -217,27 +217,6 @@ textarea {
     display: none;
   }
 
-  .header-actions .theme-toggle {
-    min-width: 2.35rem;
-    width: 2.35rem;
-    height: 2.35rem;
-    padding: 0;
-    font-size: 0;
-    display: inline-grid;
-    place-items: center;
-  }
-
-  html:not([data-theme="dark"]) .header-actions .theme-toggle::before {
-    content: "вѕ";
-    font-size: 1.05rem;
-    line-height: 1;
-  }
-
-  html[data-theme="dark"] .header-actions .theme-toggle::before {
-    content: "вЂ";
-    font-size: 1.05rem;
-    line-height: 1;
-  }
 }
 
 @media (max-width: 380px) {
@@ -319,15 +298,15 @@ textarea {
 }
 
 .theme-toggle {
-  min-width: 4.8rem;
+  width: 2.5rem;
   height: 2.5rem;
-  padding: 0 0.9rem;
+  padding: 0;
   border: 1px solid rgba(51, 51, 51, 0.2);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.86);
   color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 600;
+  display: inline-grid;
+  place-items: center;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
@@ -339,7 +318,14 @@ textarea {
 
 .theme-toggle-mobile {
   width: 100%;
+  height: 2.75rem;
   margin-top: 0.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 html[data-theme="dark"] .theme-toggle {
