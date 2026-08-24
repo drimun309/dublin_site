@@ -16,16 +16,25 @@ export function Hero() {
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    // ponytail: scroll-driven video scale janks on mobile GPUs — parallax only on desktop
+    const allowScrollFx = finePointer && !reduceMotion;
 
+    let ticking = false;
     const onScroll = () => {
-      if (reduceMotion) return;
-      const rect = hero.getBoundingClientRect();
-      const h = Math.max(rect.height, 1);
-      const progress = Math.min(1, Math.max(0, -rect.top / h));
-      hero.style.setProperty("--hero-scroll", progress.toFixed(3));
+      if (!allowScrollFx || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const rect = hero.getBoundingClientRect();
+        const h = Math.max(rect.height, 1);
+        const progress = Math.min(1, Math.max(0, -rect.top / h));
+        hero.style.setProperty("--hero-scroll", progress.toFixed(3));
+        ticking = false;
+      });
     };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
+    if (allowScrollFx) {
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    }
 
     if (video) {
       const start = () => {

@@ -44,7 +44,10 @@ export function Header() {
 
   useEffect(() => {
     if (!isHome) return;
-    const onScroll = () => setHomeScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const next = window.scrollY > 24;
+      setHomeScrolled((prev) => (prev === next ? prev : next));
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
