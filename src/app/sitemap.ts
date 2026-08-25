@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { seoServiceSlugs } from "@/entities/service";
 
-const base = process.env.NEXT_PUBLIC_SITE_URL || "https://repointingdublin.ie";
+const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.dublinrestoration.ie";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = seoServiceSlugs.map((slug) => ({

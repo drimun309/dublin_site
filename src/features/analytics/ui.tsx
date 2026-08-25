@@ -4,7 +4,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 import { trackEvent } from "@/shared/lib/analytics";
 
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCXBFFDXJ";
 
 export function GoogleAnalytics() {
   if (!gaId) return null;

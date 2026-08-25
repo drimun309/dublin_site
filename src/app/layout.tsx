@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   description:
     "Trusted Dublin tradesmen for brick restoration, repointing, damp proofing, roofing and chemical cleaning. Free on-site quote.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://repointingdublin.ie"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.dublinrestoration.ie"),
   openGraph: {
     title: "Dublin Restoration — Brick · Damp · Cleaning",
     description:
