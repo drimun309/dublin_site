@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Serif, Sora } from "next/font/google";
+import { ContactClickTracker, GoogleAnalytics } from "@/features/analytics";
 import { PageBodyClass } from "@/shared/ui";
 import "@/shared/styles/globals.css";
 
@@ -34,6 +35,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: { icon: "/favicon.ico" },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 const themeScript = `(()=>{const s=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",s||"light");})();`;
@@ -45,6 +49,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <GoogleAnalytics />
+        <ContactClickTracker />
         <PageBodyClass />
         {children}
       </body>

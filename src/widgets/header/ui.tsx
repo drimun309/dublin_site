@@ -26,8 +26,8 @@ const innerLinks: { href: string; label: string; current?: boolean }[] = [
 
 const servicesMobileLinks = [
   { href: "/services", label: "Services" },
-  { href: "/services#brick-repointing", label: "Brick Repointing" },
-  { href: "/services#chemical-cleaning", label: "Chemical Cleaning" },
+  { href: "/services/brick-repointing", label: "Brick Repointing" },
+  { href: "/services/chemical-cleaning", label: "Chemical Cleaning" },
   { href: "/#quote", label: "Assessment" },
 ];
 

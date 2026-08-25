@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import type { Service } from "@/entities/service";
-import { imagesForService } from "@/entities/service";
+import { imagesForService, isSeoServiceSlug } from "@/entities/service";
 import { useServiceReadMore } from "@/features/service-read-more";
+import { GalleryImage } from "@/shared/ui";
 
 export function ServiceFull({ service }: { service: Service }) {
   const { copyRef, mediaRef, bodyRef, expanded, clamped, toggle } = useServiceReadMore();
@@ -18,7 +19,13 @@ export function ServiceFull({ service }: { service: Service }) {
       </div>
       <div className="service-full-body" ref={bodyRef}>
         <p className="eyebrow">{service.eyebrow}</p>
-        <h3>{service.title}</h3>
+        <h3>
+          {isSeoServiceSlug(service.slug) ? (
+            <Link href={`/services/${service.slug}`}>{service.title}</Link>
+          ) : (
+            service.title
+          )}
+        </h3>
         <div className="service-full-copy" data-service-copy ref={copyRef}>
           {service.paragraphs.map((p) => (
             <p key={p}>{p}</p>
@@ -36,15 +43,18 @@ export function ServiceFull({ service }: { service: Service }) {
         <Link className="btn btn-solid" href="/#quote">
           Request a Free Assessment
         </Link>
+        {isSeoServiceSlug(service.slug) ? (
+          <Link className="service-more" href={`/services/${service.slug}`}>
+            Full service page <span aria-hidden="true">→</span>
+          </Link>
+        ) : null}
       </div>
       {photos.length ? (
         <div className="service-full-gallery">
           <p className="aside-label">Gallery</p>
           <div className="gallery-grid">
             {photos.map((image) => (
-              <a className="gallery-item" href={image.src} target="_blank" rel="noopener" key={image.src}>
-                <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-              </a>
+              <GalleryImage src={image.src} alt={image.alt} key={image.src} />
             ))}
           </div>
         </div>

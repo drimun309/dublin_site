@@ -2,8 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { servicesPageSlugs, getService } from "@/entities/service";
+import { isSeoServiceSlug, servicesPageSlugs, getService } from "@/entities/service";
 import { site } from "@/shared/config";
+
+function serviceHref(slug: string) {
+  return isSeoServiceSlug(slug) ? `/services/${slug}` : `/services#${slug}`;
+}
 
 export function Footer() {
   const pathname = usePathname();
@@ -47,7 +51,7 @@ export function Footer() {
               const label = slug === "chemical-cleaning" ? "Chemical Cleaning" : service.title;
               return (
                 <li key={slug}>
-                  <Link href={`/services#${slug}`}>{label}</Link>
+                  <Link href={serviceHref(slug)}>{label}</Link>
                 </li>
               );
             })}

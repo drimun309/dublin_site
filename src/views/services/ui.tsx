@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { getServicesPageServices } from "@/entities/service";
+import { getServicesPageServices, isSeoServiceSlug } from "@/entities/service";
 import { ServiceFull } from "@/widgets/service-full";
+
+function serviceHref(slug: string) {
+  return isSeoServiceSlug(slug) ? `/services/${slug}` : `#${slug}`;
+}
 
 export function ServicesPage() {
   const pageServices = getServicesPageServices();
@@ -20,9 +24,9 @@ export function ServicesPage() {
           </p>
           <nav className="services-jump" aria-label="Jump to service">
             {pageServices.map((service) => (
-              <a key={service.slug} href={`#${service.slug}`}>
+              <Link key={service.slug} href={serviceHref(service.slug)}>
                 {service.shortTitle}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

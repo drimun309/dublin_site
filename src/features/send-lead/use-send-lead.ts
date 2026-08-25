@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { LeadDraft } from "@/entities/lead";
+import { trackEvent } from "@/shared/lib/analytics";
 import { site } from "@/shared/config";
 
 export function useSendLead() {
@@ -29,6 +30,17 @@ export function useSendLead() {
       }
       setOk(true);
       setNote("Assessment request received! We’ll review your details and be in touch shortly.");
+      if (payload instanceof FormData) {
+        trackEvent("form_submit", {
+          service: String(payload.get("service") || ""),
+          source_page: String(payload.get("source_page") || ""),
+        });
+      } else {
+        trackEvent("form_submit", {
+          service: payload.service,
+          source_page: payload.source_page,
+        });
+      }
       return true;
     } catch {
       setError(true);

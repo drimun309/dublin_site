@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { getService, homeServiceSlugs } from "@/entities/service";
+import { getService, homeServiceSlugs, isSeoServiceSlug } from "@/entities/service";
 import { Reveal } from "@/shared/ui";
+
+function serviceHref(slug: string) {
+  return isSeoServiceSlug(slug) ? `/services/${slug}` : `/services#${slug}`;
+}
 
 export function HomeServices() {
   return (
@@ -39,15 +43,15 @@ export function HomeServices() {
               return (
                 <Reveal key={slug} style={{ ["--i" as string]: index }}>
                   <article className="service-card">
-                    <Link className="service-card-media" href={`/services#${slug}`}>
+                    <Link className="service-card-media" href={serviceHref(slug)}>
                       <img src={card.src} alt={card.alt} loading="lazy" width={500} height={350} decoding="async" />
                     </Link>
                     <div className="service-card-body">
                       <h3>
-                        <Link href={`/services#${slug}`}>{service.shortTitle}</Link>
+                        <Link href={serviceHref(slug)}>{service.shortTitle}</Link>
                       </h3>
                       <p>{card.summary}</p>
-                      <Link className="service-more" href={`/services#${slug}`}>
+                      <Link className="service-more" href={serviceHref(slug)}>
                         Read more <span aria-hidden="true">→</span>
                       </Link>
                     </div>

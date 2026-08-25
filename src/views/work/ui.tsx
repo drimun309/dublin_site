@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useGalleryFilter } from "@/features/gallery-filter";
+import { GalleryImage } from "@/shared/ui";
 
 export function WorkPage() {
   const { filter, setFilter, images, options } = useGalleryFilter();
@@ -16,7 +17,7 @@ export function WorkPage() {
           <p className="eyebrow">Gallery</p>
           <h1>Our work</h1>
           <p className="section-lead">
-            Every job photo we keep — filter by service. Open a picture for the full size.
+            Every job photo we keep — filter by service. Tap a picture to enlarge it.
           </p>
         </div>
       </section>
@@ -34,9 +35,7 @@ export function WorkPage() {
       </div>
       <div className="gallery-grid">
         {images.map((image) => (
-          <a className="gallery-item" href={image.src} target="_blank" rel="noopener" key={image.src}>
-            <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-          </a>
+          <GalleryImage src={image.src} alt={image.alt} key={image.src} />
         ))}
       </div>
     </div>

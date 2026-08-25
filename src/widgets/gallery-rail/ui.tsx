@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { GalleryImage } from "@/entities/service";
+import type { GalleryImage as GalleryImageType } from "@/entities/service";
+import { GalleryImage } from "@/shared/ui";
 
-export function GalleryRail({ images }: { images: GalleryImage[] }) {
+export function GalleryRail({ images }: { images: GalleryImageType[] }) {
   const railRef = useRef<HTMLDivElement>(null);
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
@@ -50,9 +51,7 @@ export function GalleryRail({ images }: { images: GalleryImage[] }) {
       </div>
       <div className="gallery-rail" ref={railRef}>
         {images.map((image) => (
-          <a className="gallery-item" href={image.src} target="_blank" rel="noopener" key={image.src}>
-            <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-          </a>
+          <GalleryImage src={image.src} alt={image.alt} key={image.src} />
         ))}
       </div>
       <div className="gallery-nav">
