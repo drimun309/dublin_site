@@ -2181,6 +2181,31 @@ textarea:focus-visible {
   color: var(--white);
 }
 
+.footer-social {
+  display: flex;
+  gap: 0.65rem;
+  margin-top: 0.15rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
+}
+
 .footer-base {
   max-width: var(--rail);
   margin: 3rem auto 0;
