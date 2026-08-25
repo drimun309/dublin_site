@@ -64,8 +64,8 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  if (!name || !phone || !service) {
-    return NextResponse.json({ message: "Name, phone, and service are required." }, { status: 400 });
+  if (!name || !phone) {
+    return NextResponse.json({ message: "Name and phone are required." }, { status: 400 });
   }
 
   const draft: LeadDraft = {
@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     phone,
     email: email || undefined,
     area: area || undefined,
-    service,
+    service: service || "Not specified",
     message: message || undefined,
     source_page: source_page || undefined,
     photos: photos.length > 0 ? photos : undefined,

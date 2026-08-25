@@ -69,11 +69,9 @@ export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
             </div>
 
             <div className="field field-full">
-              <label htmlFor="service">Service *</label>
-              <select id="service" name="service" required defaultValue="">
-                <option value="" disabled>
-                  Select a service
-                </option>
+              <label htmlFor="service">Service</label>
+              <select id="service" name="service" defaultValue="">
+                <option value="">Select a service (optional)</option>
                 {formServiceTitles.map((title) => (
                   <option key={title} value={title}>
                     {title}
