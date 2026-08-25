@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 export const COOKIE_CONSENT_KEY = "cookie-consent";
 export const COOKIE_CONSENT_EVENT = "cookie-consent-change";
@@ -18,19 +18,25 @@ export function setCookieConsent(value: CookieConsentValue) {
   window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT));
 }
 
-export function CookieBanner() {
-  const [visible, setVisible] = useState(false);
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener(COOKIE_CONSENT_EVENT, onStoreChange);
+  window.addEventListener("storage", onStoreChange);
+  return () => {
+    window.removeEventListener(COOKIE_CONSENT_EVENT, onStoreChange);
+    window.removeEventListener("storage", onStoreChange);
+  };
+}
 
-  useEffect(() => {
-    setVisible(getCookieConsent() === null);
-  }, []);
+function needsConsent() {
+  return getCookieConsent() === null;
+}
+
+export function CookieBanner() {
+  const visible = useSyncExternalStore(subscribe, needsConsent, () => false);
 
   if (!visible) return null;
 
-  const choose = (value: CookieConsentValue) => {
-    setCookieConsent(value);
-    setVisible(false);
-  };
+  const choose = (value: CookieConsentValue) => setCookieConsent(value);
 
   return (
     <div className="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
