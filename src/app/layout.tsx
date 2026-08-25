@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Instrument_Serif, Sora } from "next/font/google";
 import { ContactClickTracker, GoogleAnalytics } from "@/features/analytics";
+import { CookieBanner } from "@/features/cookie-consent";
 import { PageBodyClass } from "@/shared/ui";
 import "@/shared/styles/globals.css";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <ContactClickTracker />
         <PageBodyClass />
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

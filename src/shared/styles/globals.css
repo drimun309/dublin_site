@@ -2929,3 +2929,64 @@ button.gallery-item {
 .service-landing-gallery {
   margin-top: 1.75rem;
 }
+
+/* Cookie consent */
+.cookie-banner {
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 80;
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 1.1rem 1.2rem;
+  display: grid;
+  gap: 0.9rem;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-mid);
+  color: var(--ink);
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--on-surface-muted, var(--muted));
+}
+
+.cookie-banner-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: flex-end;
+}
+
+.cookie-banner-reject {
+  min-height: 2.5rem;
+}
+
+html[data-theme="dark"] .cookie-banner {
+  background: rgba(34, 34, 34, 0.96);
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+html[data-theme="dark"] .cookie-banner p {
+  color: var(--on-surface-muted);
+}
+
+html[data-theme="dark"] .cookie-banner-reject {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+@media (min-width: 720px) {
+  .cookie-banner {
+    left: auto;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    margin: 0;
+  }
+}

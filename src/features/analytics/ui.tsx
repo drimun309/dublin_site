@@ -1,13 +1,28 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/features/cookie-consent";
 import { trackEvent } from "@/shared/lib/analytics";
 
 const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCXBFFDXJ";
 
+function useAnalyticsAllowed() {
+  const [allowed, setAllowed] = useState(false);
+
+  useEffect(() => {
+    const sync = () => setAllowed(getCookieConsent() === "accepted");
+    sync();
+    window.addEventListener(COOKIE_CONSENT_EVENT, sync);
+    return () => window.removeEventListener(COOKIE_CONSENT_EVENT, sync);
+  }, []);
+
+  return allowed;
+}
+
 export function GoogleAnalytics() {
-  if (!gaId) return null;
+  const allowed = useAnalyticsAllowed();
+  if (!gaId || !allowed) return null;
 
   return (
     <>
@@ -23,8 +38,10 @@ gtag('config', '${gaId}', { send_page_view: true });`}
 }
 
 export function ContactClickTracker() {
+  const allowed = useAnalyticsAllowed();
+
   useEffect(() => {
-    if (!gaId) return;
+    if (!gaId || !allowed) return;
 
     const onClick = (event: MouseEvent) => {
       const target = event.target;
@@ -43,7 +60,7 @@ export function ContactClickTracker() {
 
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
-  }, []);
+  }, [allowed]);
 
   return null;
 }
