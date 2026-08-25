@@ -1,2 +1,2 @@
-export type { Lead, LeadDraft, LeadStatus } from "./model";
+export type { Lead, LeadDraft, LeadPhoto, LeadStatus } from "./model";
 export { leadStatuses } from "./model";

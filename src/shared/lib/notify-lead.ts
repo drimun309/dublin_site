@@ -6,15 +6,28 @@ export async function notifyLead(draft: LeadDraft) {
   if (!key) return;
 
   const to = process.env.LEAD_NOTIFY_EMAIL || site.email;
+  const from = process.env.RESEND_FROM_EMAIL || "Dublin Restoration <onboarding@resend.dev>";
+  const photosCount = draft.photos?.length || 0;
+
   const body = [
+    `New Assessment Request from ${draft.name}`,
+    "--------------------------------------------------",
     `Name: ${draft.name}`,
     `Phone: ${draft.phone}`,
     `Email: ${draft.email || "—"}`,
+    `Area / Postcode: ${draft.area || "—"}`,
     `Service: ${draft.service}`,
-    `Page: ${draft.source_page || "—"}`,
+    `Source Page: ${draft.source_page || "—"}`,
+    `Attached Photos: ${photosCount > 0 ? `${photosCount} file(s)` : "None"}`,
     "",
-    draft.message || "(no message)",
+    "Message / Description:",
+    draft.message || "(no message provided)",
   ].join("\n");
+
+  const attachments = draft.photos?.map((photo) => ({
+    filename: photo.filename,
+    content: photo.dataBase64,
+  }));
 
   await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -23,10 +36,11 @@ export async function notifyLead(draft: LeadDraft) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "Dublin Restoration <beth.t@example.com>",
+      from,
       to: [to],
-      subject: `New quote: ${draft.service} — ${draft.name}`,
+      subject: `New Assessment: ${draft.service} — ${draft.name}${draft.area ? ` (${draft.area})` : ""}`,
       text: body,
+      attachments: attachments && attachments.length > 0 ? attachments : undefined,
     }),
   });
 }

@@ -41,8 +41,9 @@ export function AdminLeads({ initialLeads, configured }: { initialLeads: Lead[];
                   <th>When</th>
                   <th>Name</th>
                   <th>Phone</th>
+                  <th>Area</th>
                   <th>Service</th>
-                  <th>Message</th>
+                  <th>Message / Photos</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -58,12 +59,20 @@ export function AdminLeads({ initialLeads, configured }: { initialLeads: Lead[];
                     <td>
                       <a href={`tel:${lead.phone}`}>{lead.phone}</a>
                     </td>
+                    <td>{lead.area || "—"}</td>
                     <td>
                       {lead.service}
                       <br />
                       <span>{lead.source_page}</span>
                     </td>
-                    <td>{lead.message || "—"}</td>
+                    <td>
+                      {lead.message || "—"}
+                      {lead.photos && lead.photos.length > 0 ? (
+                        <div style={{ marginTop: "0.35rem", fontSize: "0.8rem", color: "var(--brick)" }}>
+                          📷 {lead.photos.length} photo(s) attached
+                        </div>
+                      ) : null}
+                    </td>
                     <td>
                       <select
                         className="admin-status"

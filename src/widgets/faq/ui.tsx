@@ -4,31 +4,42 @@ const items = [
   {
     q: "Why choose Dublin Restoration?",
     a: [
-      "Our experience in the industry. Dublin Restoration works period façades across Dublin — pointing, brickwork, damp proofing and cleaning done to last Irish weather.",
-      "The repair starts with precise mortar matching so the work reads with the surrounding brick. We’ve practised this so well that most clients can’t pinpoint where the job was done.",
-      "These days anyone can put up a website and hire help off the street. We have our own trained crew. We don’t subcontract the work.",
-      "We complete and follow through on our projects. We over-communicate and over-deliver.",
+      "We specialise in Dublin period and modern façades — lime repointing, brick restoration, and chemical cleaning designed to withstand Irish weather.",
+      "The repair starts with exact mortar and brick matching so the work blends naturally with the surrounding wall.",
+      "We have our own trained in-house crew and never subcontract. We communicate clearly and provide transparent, itemised quotes.",
     ],
   },
   {
-    q: "How long will it take to get my estimate?",
+    q: "Why use traditional lime mortar instead of modern cement?",
     a: [
-      "A thorough proposal that we can stand behind takes time to prepare properly.",
-      "We aim to have it in your hands within 24 hours. Often we can price the job on the spot, depending on the repair.",
+      "Historic and period Dublin brick needs to breathe. Hard modern Portland cement traps moisture inside older brick, causing the brick faces to crack and spall during frost.",
+      "Traditional hydraulic lime mortar allows moisture to evaporate naturally, keeping the wall dry and structurally sound for decades.",
     ],
   },
   {
-    q: "How long will my project take?",
+    q: "What are the signs that my brickwork needs repointing?",
     a: [
-      "Once the estimate is approved, we schedule as soon as we can. Lead time depends on materials — if we need a specific mortar or brick, we’ll keep you updated.",
-      "Scheduling is typically 1–3 weeks out, depending on the season. Emergency and priority jobs are taken into account.",
-      "How long the work itself takes depends on complexity. Most jobs are finished in a day.",
+      "Common signs include crumbling or powdery mortar, gaps between bricks, damp patches on internal walls, white salt stains (efflorescence), and loose bricks.",
+      "Addressing failing mortar early prevents rainwater ingress and costly structural damage to the wall.",
     ],
   },
   {
-    q: "Do you offer a warranty?",
+    q: "Can chemical cleaning damage the brick surface?",
     a: [
-      "Yes. We offer a standard one-year warranty on our work, so the repair lasts through time and seasonal weather. Extra warranty options are available if you want more cover.",
+      "Not when done properly. Unlike harsh sandblasting or aggressive high-pressure washing which destroys the protective fire-skin of the brick, our gentle chemical treatments lift carbon, soot, and biological growth without etching the masonry.",
+    ],
+  },
+  {
+    q: "How long will it take to receive an assessment and estimate?",
+    a: [
+      "Once you submit the form (especially with photos of the wall), we usually review and provide an initial assessment and estimate within 24 hours.",
+      "For complex projects, we arrange a quick on-site assessment to inspect access and structural details.",
+    ],
+  },
+  {
+    q: "Do you offer a warranty on your work?",
+    a: [
+      "Yes. We offer a standard 1-year workmanship warranty on our restoration and repointing work.",
     ],
   },
 ];

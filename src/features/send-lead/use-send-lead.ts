@@ -6,32 +6,33 @@ import { site } from "@/shared/config";
 
 export function useSendLead() {
   const [pending, setPending] = useState(false);
-  const [note, setNote] = useState("We’ll store this request and get back to you — or email us for a faster reply.");
+  const [note, setNote] = useState("We'll review your property details and contact you within 24 hours.");
   const [ok, setOk] = useState(false);
   const [error, setError] = useState(false);
 
-  const send = async (draft: LeadDraft) => {
+  const send = async (payload: LeadDraft | FormData) => {
     setPending(true);
     setError(false);
     setOk(false);
     try {
+      const isFormData = typeof FormData !== "undefined" && payload instanceof FormData;
       const res = await fetch("/api/leads", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(draft),
+        headers: isFormData ? undefined : { "Content-Type": "application/json" },
+        body: isFormData ? payload : JSON.stringify(payload),
       });
       const data = (await res.json().catch(() => ({}))) as { message?: string };
       if (!res.ok) {
         setError(true);
-        setNote(data.message || `Could not send — email ${site.email}.`);
+        setNote(data.message || `Could not submit — please email ${site.email} directly.`);
         return false;
       }
       setOk(true);
-      setNote("Request received. We’ll be in touch shortly.");
+      setNote("Assessment request received! We’ll review your details and be in touch shortly.");
       return true;
     } catch {
       setError(true);
-      setNote(`Could not send — email ${site.email}.`);
+      setNote(`Could not submit — please email ${site.email} directly.`);
       return false;
     } finally {
       setPending(false);

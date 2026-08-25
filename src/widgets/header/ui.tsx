@@ -9,18 +9,18 @@ import { site } from "@/shared/config";
 
 const homeLinks = [
   { href: "/services", label: "Services" },
-  { href: "/#craft", label: "Craft" },
+  { href: "/#trust", label: "Why Us" },
   { href: "/#process", label: "Process" },
   { href: "/#gallery", label: "Gallery" },
   { href: "/#faq", label: "FAQ" },
-  { href: "/#quote", label: "Quote" },
+  { href: "/#quote", label: "Assessment" },
   { href: "/#contact", label: "Contact" },
 ];
 
 const innerLinks: { href: string; label: string; current?: boolean }[] = [
   { href: "/services", label: "Services", current: true },
-  { href: "/#craft", label: "Craft" },
-  { href: "/#quote", label: "Quote" },
+  { href: "/#trust", label: "Why Us" },
+  { href: "/#quote", label: "Assessment" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -28,7 +28,7 @@ const servicesMobileLinks = [
   { href: "/services", label: "Services" },
   { href: "/services#brick-repointing", label: "Brick Repointing" },
   { href: "/services#chemical-cleaning", label: "Chemical Cleaning" },
-  { href: "/#quote", label: "Quote" },
+  { href: "/#quote", label: "Assessment" },
 ];
 
 export function Header() {
@@ -83,7 +83,7 @@ export function Header() {
             {themeIcon}
           </button>
           <Link className="btn btn-solid btn-sm" href="/#quote">
-            Free quote
+            Free Assessment
           </Link>
           <button
             className="nav-toggle"
@@ -115,7 +115,7 @@ export function Header() {
           <span>{dark ? "Light mode" : "Dark mode"}</span>
         </button>
         <Link className="btn btn-solid" href="/#quote" onClick={close}>
-          Free quote
+          Free Assessment
         </Link>
       </div>
     </header>

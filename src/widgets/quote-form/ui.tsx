@@ -1,25 +1,31 @@
 "use client";
 
-import { FormEvent } from "react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
 import { formServiceTitles } from "@/entities/service";
 import { useSendLead } from "@/features/send-lead";
 import { Reveal } from "@/shared/ui";
 
 export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
   const { send, pending, note, ok, error } = useSendLead();
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const onFileChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files ? Array.from(e.target.files) : [];
+    setSelectedFiles(files.map((f) => f.name));
+  };
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const sent = await send({
-      name: String(data.get("name") || ""),
-      phone: String(data.get("phone") || ""),
-      email: String(data.get("email") || ""),
-      service: String(data.get("service") || ""),
-      message: String(data.get("message") || ""),
-      source_page: sourcePage,
-    });
-    if (sent) event.currentTarget.reset();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    data.set("source_page", sourcePage);
+
+    const sent = await send(data);
+    if (sent) {
+      form.reset();
+      setSelectedFiles([]);
+    }
   };
 
   return (
@@ -27,29 +33,43 @@ export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
       <div className="quote-shell">
         <div className="quote-intro">
           <Reveal>
-            <p className="eyebrow">Free quote</p>
+            <p className="eyebrow">Free assessment</p>
           </Reveal>
           <Reveal>
             <h2>Tell us about the job.</h2>
+          </Reveal>
+          <Reveal>
+            <p>
+              Not sure what your property needs? Send us a few photos and details, and we&apos;ll advise on the next
+              step with an itemised estimate.
+            </p>
           </Reveal>
         </div>
 
         <Reveal>
           <form className="quote-form" onSubmit={onSubmit}>
             <div className="field">
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Name *</label>
               <input id="name" name="name" type="text" autoComplete="name" required placeholder="Your name" />
             </div>
+
             <div className="field">
-              <label htmlFor="phone">Phone</label>
+              <label htmlFor="phone">Phone *</label>
               <input id="phone" name="phone" type="tel" autoComplete="tel" required placeholder="Mobile or landline" />
             </div>
+
             <div className="field">
               <label htmlFor="email">Email</label>
-              <input id="email" name="email" type="email" autoComplete="email" placeholder="Optional" />
+              <input id="email" name="email" type="email" autoComplete="email" placeholder="email@example.com (optional)" />
             </div>
+
             <div className="field">
-              <label htmlFor="service">Service</label>
+              <label htmlFor="area">Area / Postcode</label>
+              <input id="area" name="area" type="text" placeholder="e.g. Ranelagh, D06, Dublin 4" />
+            </div>
+
+            <div className="field field-full">
+              <label htmlFor="service">Service *</label>
               <select id="service" name="service" required defaultValue="">
                 <option value="" disabled>
                   Select a service
@@ -59,21 +79,56 @@ export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
                     {title}
                   </option>
                 ))}
-                <option value="Other">Other</option>
+                <option value="Other">Other / Multiple services</option>
               </select>
             </div>
+
             <div className="field field-full">
-              <label htmlFor="message">Message</label>
+              <label htmlFor="message">Description of Work</label>
               <textarea
                 id="message"
                 name="message"
                 rows={4}
-                placeholder="Address, issue, and preferred time for a visit"
+                placeholder="Briefly describe the issues, property type/age, or preferred date for a visit..."
               />
             </div>
+
+            <div className="field field-full">
+              <label htmlFor="photos">Upload Photos (Optional)</label>
+              <div
+                className="file-upload-box"
+                onClick={() => fileInputRef.current?.click()}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") fileInputRef.current?.click();
+                }}
+              >
+                <input
+                  ref={fileInputRef}
+                  id="photos"
+                  name="photos"
+                  type="file"
+                  multiple
+                  accept="image/*,.heic,.heif"
+                  onChange={onFileChange}
+                />
+                <span className="file-upload-label">
+                  {selectedFiles.length > 0
+                    ? `${selectedFiles.length} photo(s) selected`
+                    : "Click to upload photos of the property"}
+                </span>
+                <span className="file-upload-hint">
+                  {selectedFiles.length > 0
+                    ? selectedFiles.slice(0, 3).join(", ") + (selectedFiles.length > 3 ? "..." : "")
+                    : "Wide shot + close-up of the brickwork or chimney helps us give an accurate assessment."}
+                </span>
+              </div>
+            </div>
+
             <div className="field-full form-footer">
               <button className="btn btn-solid" type="submit" disabled={pending}>
-                {pending ? "Sending…" : "Send request"}
+                {pending ? "Sending assessment request…" : "Request a Free Assessment"}
               </button>
               <p className={`form-note${ok ? " is-success" : ""}${error ? " is-error" : ""}`}>{note}</p>
             </div>

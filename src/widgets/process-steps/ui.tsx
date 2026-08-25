@@ -31,7 +31,7 @@ const steps = [
   },
   {
     num: "03",
-    title: "Free quote",
+    title: "Assessment & Diagnosis",
     body: <p>We establish what’s damaged → why → what actually needs doing.</p>,
   },
   {

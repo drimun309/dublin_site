@@ -27,15 +27,15 @@ export function HomePage() {
             </Reveal>
             <Reveal>
               <p>
-                Dublin Restoration is a contemporary façade practice. We restore brick and chemically clean Dublin
-                homes with methods and materials chosen for the wall — so the work lasts, and the house looks like
-                itself, only clearer.
+                Specialist façade restoration, traditional lime mortar repointing, and gentle chemical cleaning for
+                Dublin homes. We restore brick and masonry with methods and materials chosen specifically for the wall
+                — so the work lasts, and the house looks like itself, only clearer.
               </p>
             </Reveal>
             <Reveal>
               <div className="intro-cta">
                 <Link className="btn btn-solid" href="/#quote">
-                  Request a free quote
+                  Request a Free Assessment
                 </Link>
                 <Link className="btn btn-ghost" href="/services">
                   View services
@@ -51,8 +51,8 @@ export function HomePage() {
           </Reveal>
         </div>
       </section>
-      <HomeServices />
       <Craft />
+      <HomeServices />
       <ProcessSteps />
       <GalleryRail images={homeGalleryImages()} />
       <Faq />

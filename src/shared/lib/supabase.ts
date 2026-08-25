@@ -16,21 +16,53 @@ export async function insertLead(draft: LeadDraft) {
   const supabase = getServiceClient();
   if (!supabase) throw new Error("Database is not configured");
 
+  const photoNames = draft.photos?.map((p) => p.filename) || null;
+
+  // Primary insert with area & photos columns
   const { data, error } = await supabase
     .from("leads")
     .insert({
       name: draft.name,
       phone: draft.phone,
       email: draft.email || null,
+      area: draft.area || null,
       service: draft.service,
       message: draft.message || null,
       source_page: draft.source_page || null,
+      photos: photoNames,
       status: "new",
     })
     .select()
     .single();
 
-  if (error) throw error;
+  if (error) {
+    // Graceful fallback for legacy database schemas without area/photos columns
+    const combinedMessage = [
+      draft.area ? `Area/Postcode: ${draft.area}` : "",
+      photoNames?.length ? `Attached photos (${photoNames.length}): ${photoNames.join(", ")}` : "",
+      draft.message || "",
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+
+    const { data: fallbackData, error: fallbackError } = await supabase
+      .from("leads")
+      .insert({
+        name: draft.name,
+        phone: draft.phone,
+        email: draft.email || null,
+        service: draft.service,
+        message: combinedMessage || null,
+        source_page: draft.source_page || null,
+        status: "new",
+      })
+      .select()
+      .single();
+
+    if (fallbackError) throw fallbackError;
+    return fallbackData as Lead;
+  }
+
   return data as Lead;
 }
 

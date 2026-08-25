@@ -105,16 +105,19 @@ export function Hero() {
           height={280}
           decoding="async"
         />
+        <p className="hero-brand reveal" style={{ ["--d" as string]: 0.5 }}>
+          Dublin Restoration
+        </p>
         <h1 className="reveal" style={{ ["--d" as string]: 1 }}>
-          Brickwork restored.
+          Brick Restoration, Repointing &amp; Chemical Cleaning in Dublin
         </h1>
         <div className="hero-cta reveal" style={{ ["--d" as string]: 2 }}>
           <Link className="btn btn-solid" href="/#quote">
-            Request a free quote
+            Request a Free Assessment
           </Link>
-          <a className="btn btn-ghost" href={`mailto:${site.email}`}>
-            Email us
-          </a>
+          <Link className="btn btn-ghost" href="/services">
+            View Services
+          </Link>
         </div>
       </div>
 

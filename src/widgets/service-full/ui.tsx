@@ -34,7 +34,7 @@ export function ServiceFull({ service }: { service: Service }) {
           {expanded ? "Show less" : "Read more"}
         </button>
         <Link className="btn btn-solid" href="/#quote">
-          Request a free quote
+          Request a Free Assessment
         </Link>
       </div>
       {photos.length ? (

@@ -5,7 +5,7 @@
   --brick: #c2410c;
   --brick-hot: #9a3412;
   --paper: #ffffff;
-  --stone: #f5f5f5;
+  --stone: #ffffff;
   --muted: #666666;
   --line: rgba(51, 51, 51, 0.12);
   --white: #ffffff;
@@ -66,34 +66,18 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--ink);
-  background:
-    radial-gradient(circle at top left, rgba(194, 65, 12, 0.06), transparent 28%),
-    radial-gradient(circle at 85% 12%, rgba(51, 51, 51, 0.03), transparent 22%),
-    linear-gradient(180deg, #ffffff 0%, #f8f8f8 48%, #f0f0f0 100%);
+  background: #ffffff;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 #main {
   position: relative;
-  background:
-    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.72), transparent 0 18%),
-    radial-gradient(circle at 82% 14%, rgba(194, 65, 12, 0.04), transparent 0 20%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(248, 248, 248, 0.88) 48%, rgba(240, 240, 240, 0.94) 100%);
+  background: #ffffff;
 }
 
 #main::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.08) 0%,
-    rgba(51, 51, 51, 0.02) 45%,
-    rgba(255, 255, 255, 0.04) 100%
-  );
+  display: none;
 }
 
 html[data-theme="dark"] body {
@@ -671,11 +655,11 @@ textarea:focus-visible {
 
 .hero h1 {
   margin: 0;
-  max-width: 14ch;
+  max-width: 22ch;
   font-family: var(--font-display);
-  font-size: clamp(2.8rem, 8vw, 5.6rem);
+  font-size: clamp(2.2rem, 5.5vw, 4.2rem);
   font-weight: 400;
-  line-height: 0.98;
+  line-height: 1.08;
   letter-spacing: -0.02em;
   text-wrap: balance;
 }
@@ -1354,7 +1338,7 @@ textarea:focus-visible {
 /* Craft */
 .craft {
   padding: var(--section-y) var(--gutter);
-  background: var(--stone);
+  background: var(--paper);
   box-sizing: border-box;
 }
 
@@ -1382,13 +1366,31 @@ textarea:focus-visible {
 .craft-visual {
   position: relative;
   overflow: hidden;
+  border-radius: 1rem;
+  background: var(--white);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    0 6px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s ease;
+}
+
+.craft-visual:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 26px 52px rgba(0, 0, 0, 0.22),
+    0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .craft-visual img {
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  transform: scale(1.08);
+  display: block;
+  transition: transform 0.9s var(--ease);
+}
+
+.craft-visual:hover img {
+  transform: scale(1.04);
 }
 
 .craft-caption {
@@ -1397,11 +1399,13 @@ textarea:focus-visible {
   bottom: 1rem;
   right: 1rem;
   padding: 1rem 1.1rem;
-  background: rgba(247, 248, 250, 0.92);
+  background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow-soft);
 }
 
 .craft-caption span {
@@ -1415,10 +1419,11 @@ textarea:focus-visible {
   font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 400;
+  color: var(--on-surface);
 }
 
 .craft-copy .eyebrow {
-  color: var(--navy);
+  color: var(--brick);
 }
 
 .craft-copy p {
@@ -1454,8 +1459,7 @@ textarea:focus-visible {
 /* Trust вЂ” stats */
 .trust {
   padding: var(--section-y) var(--gutter);
-  background:
-    linear-gradient(180deg, #fafbfc 0%, var(--paper) 100%);
+  background: #ffffff;
   position: relative;
   overflow: visible;
   box-sizing: border-box;
@@ -2006,8 +2010,8 @@ textarea:focus-visible {
   gap: 1rem;
   grid-template-columns: 1fr;
   padding: 1.5rem;
-  background: #d8dce2;
-  border: 1px solid rgba(51, 51, 51, 0.08);
+  background: #ffffff;
+  border: 1px solid rgba(51, 51, 51, 0.12);
   border-radius: 1.15rem;
   box-shadow: var(--shadow-mid);
 }
@@ -2060,6 +2064,45 @@ textarea:focus-visible {
   box-shadow:
     var(--shadow-inset),
     0 0 0 3px rgba(51, 51, 51, 0.08);
+}
+
+.file-upload-box {
+  border: 1.5px dashed var(--line);
+  background: var(--paper);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+}
+
+.file-upload-box:hover,
+.file-upload-box:focus-visible {
+  border-color: var(--brick);
+  background: var(--white);
+  outline: none;
+}
+
+.file-upload-box input[type="file"] {
+  display: none;
+}
+
+.file-upload-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.file-upload-hint {
+  font-size: 0.82rem;
+  color: var(--muted);
+  max-width: 32rem;
 }
 
 .form-footer {
@@ -2286,9 +2329,7 @@ textarea:focus-visible {
 /* ========== Our Services page ========== */
 .services-page-hero {
   padding: calc(var(--header-h) + 2.5rem) var(--gutter) 2rem;
-  background:
-    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(200, 92, 42, 0.08), transparent 55%),
-    linear-gradient(180deg, #eef1f5 0%, var(--paper) 100%);
+  background: #ffffff;
   border-bottom: 1px solid var(--line);
   box-sizing: border-box;
 }

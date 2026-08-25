@@ -4,9 +4,11 @@ create table if not exists public.leads (
   name text not null,
   phone text not null,
   email text,
+  area text,
   service text not null,
   message text,
   source_page text,
+  photos text[],
   status text not null default 'new'
     check (status in ('new', 'contacted', 'quoted', 'done'))
 );
