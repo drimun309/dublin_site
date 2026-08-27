@@ -7,8 +7,8 @@ import { trackEvent } from "@/shared/lib/analytics";
 
 const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCKBFFD15";
 
-// ponytail: force debug until GA4 DebugView is confirmed, then set back to URL/localStorage-only
-const FORCE_GA_DEBUG = true;
+// ponytail: debug only via ?ga_debug=1 or localStorage ga_debug=1
+const FORCE_GA_DEBUG = false;
 
 function useAnalyticsAllowed() {
   const [allowed, setAllowed] = useState(false);
