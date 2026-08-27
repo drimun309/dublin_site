@@ -31,7 +31,10 @@ export function GoogleAnalytics() {
         {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaId}', { send_page_view: true });`}
+gtag('config', '${gaId}', {
+  send_page_view: true,
+  debug_mode: new URLSearchParams(location.search).has('ga_debug')
+});`}
       </Script>
     </>
   );
