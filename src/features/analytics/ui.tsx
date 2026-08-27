@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { COOKIE_CONSENT_EVENT, getCookieConsent } from "@/features/cookie-consent";
 import { trackEvent } from "@/shared/lib/analytics";
 
-const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCXBFFDXJ";
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCKBFFD15";
 
 // ponytail: force debug until GA4 DebugView is confirmed, then set back to URL/localStorage-only
 const FORCE_GA_DEBUG = true;
