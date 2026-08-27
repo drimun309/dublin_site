@@ -24,17 +24,23 @@ export function GoogleAnalytics() {
   const allowed = useAnalyticsAllowed();
   if (!gaId || !allowed) return null;
 
+  // Persist ?ga_debug=1 so DebugView keeps working after navigation
+  const bootstrap = `window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+window.gtag=gtag;
+gtag('js', new Date());
+(function(){
+  var q=new URLSearchParams(location.search);
+  if(q.has('ga_debug')) localStorage.setItem('ga_debug','1');
+  var debug=localStorage.getItem('ga_debug')==='1'||q.has('ga_debug');
+  gtag('config','${gaId}',{send_page_view:true,debug_mode:!!debug});
+})();`;
+
   return (
     <>
       <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
       <Script id="google-analytics" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gaId}', {
-  send_page_view: true,
-  debug_mode: new URLSearchParams(location.search).has('ga_debug')
-});`}
+        {bootstrap}
       </Script>
     </>
   );
@@ -53,11 +59,16 @@ export function ContactClickTracker() {
       if (!link) return;
 
       const href = link.getAttribute("href") || "";
+      const debug =
+        localStorage.getItem("ga_debug") === "1" ||
+        new URLSearchParams(location.search).has("ga_debug");
+      const extra = debug ? { debug_mode: true } : {};
+
       if (href.startsWith("mailto:")) {
-        trackEvent("email_click", { link_url: href });
+        trackEvent("email_click", { link_url: href, ...extra });
       }
       if (href.startsWith("tel:")) {
-        trackEvent("phone_click", { link_url: href });
+        trackEvent("phone_click", { link_url: href, ...extra });
       }
     };
 

@@ -13,5 +13,8 @@ declare global {
 
 export function trackEvent(name: AnalyticsEvent, params: AnalyticsParams = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  window.gtag("event", name, params);
+  const debug =
+    localStorage.getItem("ga_debug") === "1" ||
+    new URLSearchParams(window.location.search).has("ga_debug");
+  window.gtag("event", name, debug ? { ...params, debug_mode: true } : params);
 }
