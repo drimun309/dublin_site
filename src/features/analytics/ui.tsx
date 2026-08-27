@@ -7,6 +7,9 @@ import { trackEvent } from "@/shared/lib/analytics";
 
 const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-QMCXBFFDXJ";
 
+// ponytail: force debug until GA4 DebugView is confirmed, then set back to URL/localStorage-only
+const FORCE_GA_DEBUG = true;
+
 function useAnalyticsAllowed() {
   const [allowed, setAllowed] = useState(false);
 
@@ -24,7 +27,6 @@ export function GoogleAnalytics() {
   const allowed = useAnalyticsAllowed();
   if (!gaId || !allowed) return null;
 
-  // Persist ?ga_debug=1 so DebugView keeps working after navigation
   const bootstrap = `window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
 window.gtag=gtag;
@@ -32,7 +34,7 @@ gtag('js', new Date());
 (function(){
   var q=new URLSearchParams(location.search);
   if(q.has('ga_debug')) localStorage.setItem('ga_debug','1');
-  var debug=localStorage.getItem('ga_debug')==='1'||q.has('ga_debug');
+  var debug=${FORCE_GA_DEBUG ? "true" : "false"} || localStorage.getItem('ga_debug')==='1' || q.has('ga_debug');
   gtag('config','${gaId}',{send_page_view:true,debug_mode:!!debug});
 })();`;
 
@@ -59,16 +61,11 @@ export function ContactClickTracker() {
       if (!link) return;
 
       const href = link.getAttribute("href") || "";
-      const debug =
-        localStorage.getItem("ga_debug") === "1" ||
-        new URLSearchParams(location.search).has("ga_debug");
-      const extra = debug ? { debug_mode: true } : {};
-
       if (href.startsWith("mailto:")) {
-        trackEvent("email_click", { link_url: href, ...extra });
+        trackEvent("email_click", { link_url: href });
       }
       if (href.startsWith("tel:")) {
-        trackEvent("phone_click", { link_url: href, ...extra });
+        trackEvent("phone_click", { link_url: href });
       }
     };
 

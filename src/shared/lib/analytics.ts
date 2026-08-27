@@ -13,8 +13,6 @@ declare global {
 
 export function trackEvent(name: AnalyticsEvent, params: AnalyticsParams = {}) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
-  const debug =
-    localStorage.getItem("ga_debug") === "1" ||
-    new URLSearchParams(window.location.search).has("ga_debug");
-  window.gtag("event", name, debug ? { ...params, debug_mode: true } : params);
+  // ponytail: FORCE_GA_DEBUG mirror — remove debug_mode once DebugView confirmed
+  window.gtag("event", name, { ...params, debug_mode: true });
 }
