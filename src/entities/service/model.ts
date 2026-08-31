@@ -70,8 +70,8 @@ export const services: Service[] = [
     hero: "/assets/brick-repointing/30-stonegate.jpg",
     heroAlt: "Brick façade with fresh repointing patch",
     homeCard: {
-      src: "/assets/brick-repointing/ba-facade.jpg",
-      alt: "Brick repointing before and after",
+      src: "/assets/brick-repointing/dublin-facade-before-after.jpg",
+      alt: "Brick repointing before and after on a Dublin house",
       summary:
         "Failed mortar lets water into the wall. We rake out and repoint with a mix matched to your façade — weather-tight and tidy.",
     },

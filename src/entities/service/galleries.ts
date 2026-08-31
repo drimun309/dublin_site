@@ -53,6 +53,10 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/bri/bri-03.jpg", "Weathered brick needing restoration", "brick-restoration"),
   img("/assets/pic/bri/bri-04.jpg", "Brick crack and failed mortar", "brick-restoration"),
 
+  img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing", {
+    featured: true,
+    home: true,
+  }),
   img("/assets/brick-repointing/01.jpg", "Georgian brick façade repointing", "brick-repointing", { featured: true }),
   img("/assets/brick-repointing/02.jpg", "Repointing work on scaffolding", "brick-repointing", { featured: true }),
   img("/assets/brick-repointing/13.jpg", "Before and after lime mortar repointing", "brick-repointing", {
@@ -174,6 +178,7 @@ export function imagesForService(slug: ServiceSlug, featuredOnly = false) {
 }
 
 const homeGalleryOrder: GalleryImage[] = [
+  img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing"),
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
   img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration"),
