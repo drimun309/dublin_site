@@ -91,6 +91,10 @@ export function ServiceLandingPage({ landing }: { landing: ServiceLanding }) {
               <p className="service-landing-panel-kicker">Why Dublin Restoration</p>
               <ul className="craft-points">
                 <li>
+                  <strong>10 years in Dublin</strong>
+                  <span>A decade of brick restoration, lime repointing and façade work on Dublin homes.</span>
+                </li>
+                <li>
                   <strong>Dedicated in-house team</strong>
                   <span>We never subcontract. Our own craftsmen carry out the work on site.</span>
                 </li>

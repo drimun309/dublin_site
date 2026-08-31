@@ -4,7 +4,7 @@ const items = [
   {
     q: "Why choose Dublin Restoration?",
     a: [
-      "We specialise in Dublin period and modern façades — lime repointing, brick restoration, and chemical cleaning designed to withstand Irish weather.",
+      "With 10 years’ experience in Dublin, we specialise in period and modern façades — lime repointing, brick restoration, and chemical cleaning built for Irish weather.",
       "The repair starts with exact mortar and brick matching so the work blends naturally with the surrounding wall.",
       "We have our own trained in-house crew and never subcontract. We communicate clearly and provide transparent, itemised quotes.",
     ],

@@ -30,12 +30,20 @@ export function Craft() {
           </Reveal>
           <Reveal>
             <p>
-              We focus on period and modern brickwork across Dublin. No shortcuts, no guesswork — just the right
-              materials, proven techniques, and clear communication from assessment to handover.
+              With 10 years’ experience restoring Dublin façades, we focus on period and modern brickwork. No
+              shortcuts, no guesswork — the right materials, proven techniques, and clear communication from
+              assessment to handover.
             </p>
           </Reveal>
           <Reveal>
             <ul className="craft-points">
+              <li>
+                <strong>10 Years in Dublin</strong>
+                <span>
+                  A decade of brick restoration, lime repointing and façade work across Dublin homes — period and
+                  modern.
+                </span>
+              </li>
               <li>
                 <strong>Dedicated In-House Team</strong>
                 <span>We never subcontract. Our own trained craftsmen carry out every stage of the project on site.</span>
