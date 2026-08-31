@@ -15,9 +15,10 @@ export function WorkPage() {
             <Link href="/">Home</Link> / <span>Our work</span>
           </p>
           <p className="eyebrow">Gallery</p>
-          <h1>Our work</h1>
+          <h1>Brick Restoration Projects in Dublin</h1>
           <p className="section-lead">
-            Every job photo we keep — filter by service. Tap a picture to enlarge it.
+            Before-and-after examples of repointing, brick repair, chimney work and masonry cleaning. Filter by
+            service and tap a picture to enlarge it.
           </p>
         </div>
       </section>

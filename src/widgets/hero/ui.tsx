@@ -109,15 +109,13 @@ export function Hero() {
           Dublin Restoration
         </p>
         <h1 className="reveal" style={{ ["--d" as string]: 1 }}>
-          Brick Restoration, Repointing &amp; Chemical Cleaning in Dublin
+          Brick Repointing &amp; Restoration Specialists in Dublin
         </h1>
         <div className="hero-cta reveal" style={{ ["--d" as string]: 2 }}>
           <Link className="btn btn-solid" href="/#quote">
-            Request a Free Assessment
+            Send Photos for a Free Assessment
           </Link>
-          <Link className="btn btn-ghost" href="/services">
-            View Services
-          </Link>
+          <a className="btn btn-ghost" href={site.phoneHref}>Call {site.phone}</a>
         </div>
       </div>
 

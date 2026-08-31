@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getServiceLanding, isSeoServiceSlug, seoServiceSlugs } from "@/entities/service/landing";
+import { getService, getServiceLanding, isSeoServiceSlug, seoServiceSlugs } from "@/entities/service";
+import { site } from "@/shared/config";
+import { JsonLd } from "@/shared/ui";
 import { ServiceLandingPage } from "@/views/service-landing";
 
 type PageProps = {
@@ -31,5 +33,45 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
   if (!isSeoServiceSlug(slug)) notFound();
-  return <ServiceLandingPage landing={getServiceLanding(slug)} />;
+  const landing = getServiceLanding(slug);
+  const service = getService(slug);
+  const url = `${site.url}/services/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${url}/#service`,
+        name: landing.h1,
+        serviceType: service.title,
+        description: landing.metaDescription,
+        url,
+        provider: { "@id": `${site.url}/#business` },
+        areaServed: { "@type": "AdministrativeArea", name: site.areaServed },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: landing.faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.url },
+          { "@type": "ListItem", position: 2, name: "Services", item: `${site.url}/services` },
+          { "@type": "ListItem", position: 3, name: service.shortTitle, item: url },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <>
+      <JsonLd data={jsonLd} />
+      <ServiceLandingPage landing={landing} />
+    </>
+  );
 }

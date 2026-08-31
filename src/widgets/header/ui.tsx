@@ -9,6 +9,7 @@ import { site } from "@/shared/config";
 
 const homeLinks = [
   { href: "/services", label: "Services" },
+  { href: "/work", label: "Our Work" },
   { href: "/#trust", label: "Why Us" },
   { href: "/#process", label: "Process" },
   { href: "/#gallery", label: "Gallery" },
@@ -17,8 +18,9 @@ const homeLinks = [
   { href: "/#contact", label: "Contact" },
 ];
 
-const innerLinks: { href: string; label: string; current?: boolean }[] = [
-  { href: "/services", label: "Services", current: true },
+const innerLinks = [
+  { href: "/services", label: "Services" },
+  { href: "/work", label: "Our Work" },
   { href: "/#trust", label: "Why Us" },
   { href: "/#quote", label: "Assessment" },
   { href: "/#contact", label: "Contact" },
@@ -28,6 +30,7 @@ const servicesMobileLinks = [
   { href: "/services", label: "Services" },
   { href: "/services/brick-repointing", label: "Brick Repointing" },
   { href: "/services/chemical-cleaning", label: "Chemical Cleaning" },
+  { href: "/work", label: "Our Work" },
   { href: "/#quote", label: "Assessment" },
 ];
 
@@ -72,7 +75,15 @@ export function Header() {
                 </Link>
               ))
             : innerLinks.map((link) => (
-                <Link key={link.href} href={link.href} aria-current={link.current ? "page" : undefined}>
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={
+                    link.href !== "/" && (pathname === link.href || pathname.startsWith(`${link.href}/`))
+                      ? "page"
+                      : undefined
+                  }
+                >
                   {link.label}
                 </Link>
               ))}
@@ -83,7 +94,7 @@ export function Header() {
             {themeIcon}
           </button>
           <Link className="btn btn-solid btn-sm" href="/#quote">
-            Free Assessment
+            Send Photos
           </Link>
           <button
             className="nav-toggle"
@@ -115,7 +126,7 @@ export function Header() {
           <span>{dark ? "Light mode" : "Dark mode"}</span>
         </button>
         <Link className="btn btn-solid" href="/#quote" onClick={close}>
-          Free Assessment
+          Send Photos for a Free Assessment
         </Link>
       </div>
     </header>

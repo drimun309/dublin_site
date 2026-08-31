@@ -664,14 +664,6 @@ textarea:focus-visible {
   text-wrap: balance;
 }
 
-.hero-lead {
-  margin: 1.35rem auto 0;
-  max-width: 34rem;
-  font-size: clamp(1rem, 2vw, 1.15rem);
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.86);
-}
-
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
@@ -2142,6 +2134,19 @@ textarea:focus-visible {
   font-size: 0.88rem;
 }
 
+.form-privacy {
+  margin: 0;
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.form-privacy a {
+  color: inherit;
+  text-underline-offset: 0.15em;
+}
+
 .form-note.is-success {
   color: #166534;
   font-weight: 500;
@@ -2257,6 +2262,18 @@ textarea:focus-visible {
 .to-top {
   color: var(--brick);
   font-weight: 600;
+}
+
+.footer-base-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-base-links a {
+  color: inherit;
+  text-underline-offset: 0.15em;
 }
 
 /* Body copy вЂ” same type as .service-card-body p */
@@ -2819,6 +2836,36 @@ button.gallery-item {
   max-width: var(--rail);
   margin: 0 auto;
   box-sizing: border-box;
+}
+
+.legal-page {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: var(--section-y) var(--gutter);
+  box-sizing: border-box;
+}
+
+.legal-page h2 {
+  margin: 2.25rem 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 3vw, 2.15rem);
+  font-weight: 400;
+  color: var(--navy);
+}
+
+.legal-page h2:first-child {
+  margin-top: 0;
+}
+
+.legal-page p,
+.legal-page li {
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.legal-page a {
+  color: var(--ink);
+  text-underline-offset: 0.15em;
 }
 
 .service-landing-split {

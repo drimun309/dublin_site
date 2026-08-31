@@ -1,11 +1,11 @@
 import { Reveal } from "@/shared/ui";
 
-const items = [
+export const faqItems = [
   {
     q: "Why choose Dublin Restoration?",
     a: [
       "With 10 years’ experience in Dublin, we specialise in period and modern façades — lime repointing, brick restoration, and chemical cleaning built for Irish weather.",
-      "The repair starts with exact mortar and brick matching so the work blends naturally with the surrounding wall.",
+      "The repair starts with careful mortar and brick matching so the work blends naturally with the surrounding wall.",
       "We have our own trained in-house crew and never subcontract. We communicate clearly and provide transparent, itemised quotes.",
     ],
   },
@@ -13,7 +13,7 @@ const items = [
     q: "Why use traditional lime mortar instead of modern cement?",
     a: [
       "Historic and period Dublin brick needs to breathe. Hard modern Portland cement traps moisture inside older brick, causing the brick faces to crack and spall during frost.",
-      "Traditional hydraulic lime mortar allows moisture to evaporate naturally, keeping the wall dry and structurally sound for decades.",
+      "Traditional hydraulic lime mortar allows moisture to evaporate through the joints and helps protect softer historic brick over time.",
     ],
   },
   {
@@ -53,7 +53,7 @@ export function Faq() {
         </Reveal>
       </div>
       <div className="faq-list">
-        {items.map((item) => (
+        {faqItems.map((item) => (
           <Reveal key={item.q}>
             <details className="faq-item">
               <summary>{item.q}</summary>

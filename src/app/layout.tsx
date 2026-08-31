@@ -3,7 +3,8 @@ import type { ReactNode } from "react";
 import { Instrument_Serif, Sora } from "next/font/google";
 import { ContactClickTracker, GoogleAnalytics } from "@/features/analytics";
 import { CookieBanner } from "@/features/cookie-consent";
-import { PageBodyClass } from "@/shared/ui";
+import { site } from "@/shared/config";
+import { JsonLd, PageBodyClass } from "@/shared/ui";
 import "@/shared/styles/globals.css";
 
 const sora = Sora({
@@ -22,18 +23,26 @@ const serif = Instrument_Serif({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dublin Restoration — Brick · Damp · Cleaning",
+    default: "Brick Repointing & Restoration Dublin | Dublin Restoration",
     template: "%s — Dublin Restoration",
   },
-  description:
-    "Trusted Dublin tradesmen for brick restoration, repointing, damp proofing, roofing and chemical cleaning. Free on-site quote.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.dublinrestoration.ie"),
+  description: site.description,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || site.url),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Dublin Restoration — Brick · Damp · Cleaning",
-    description:
-      "Brick restoration, repointing, damp proofing, roofing and chemical cleaning in Dublin. Free on-site quote.",
+    title: "Brick Repointing & Restoration Dublin | Dublin Restoration",
+    description: site.description,
+    url: "/",
+    siteName: site.name,
     locale: "en_IE",
     type: "website",
+    images: [{ url: site.socialImage, width: 1280, height: 720, alt: "Dublin brick house restoration" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brick Repointing & Restoration Dublin | Dublin Restoration",
+    description: site.description,
+    images: [site.socialImage],
   },
   icons: { icon: "/favicon.ico" },
   verification: process.env.GOOGLE_SITE_VERIFICATION
@@ -44,12 +53,29 @@ export const metadata: Metadata = {
 const themeScript = `(()=>{const s=localStorage.getItem("theme");document.documentElement.setAttribute("data-theme",s||"light");})();`;
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${site.url}/#business`,
+    name: site.name,
+    url: site.url,
+    image: `${site.url}${site.socialImage}`,
+    logo: `${site.url}${site.logo}`,
+    email: site.email,
+    telephone: site.phone,
+    description: site.description,
+    areaServed: { "@type": "AdministrativeArea", name: site.areaServed },
+    openingHours: "Mo-Su 08:00-18:00",
+    sameAs: [site.instagram],
+  };
+
   return (
-    <html lang="en" className={`${sora.variable} ${serif.variable}`} suppressHydrationWarning>
+    <html lang="en-IE" className={`${sora.variable} ${serif.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
+        <JsonLd data={businessJsonLd} />
         <GoogleAnalytics />
         <ContactClickTracker />
         <PageBodyClass />

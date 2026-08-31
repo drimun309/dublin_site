@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { adminCookieName, isAdminToken } from "@/shared/lib/admin-session";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (!pathname.startsWith("/admin") || pathname.startsWith("/admin/login")) {
     return NextResponse.next();
@@ -10,8 +10,7 @@ export async function middleware(request: NextRequest) {
   const token = request.cookies.get(adminCookieName())?.value;
   if (await isAdminToken(token)) return NextResponse.next();
 
-  const login = new URL("/admin/login", request.url);
-  return NextResponse.redirect(login);
+  return NextResponse.redirect(new URL("/admin/login", request.url));
 }
 
 export const config = {

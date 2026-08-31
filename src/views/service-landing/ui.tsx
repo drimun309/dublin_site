@@ -21,7 +21,7 @@ export function ServiceLandingPage({ landing }: { landing: ServiceLanding }) {
           <p className="section-lead">{landing.lead}</p>
           <div className="intro-cta">
             <Link className="btn btn-solid" href="#quote">
-              Request a Free Assessment
+              Send Photos for a Free Assessment
             </Link>
             <Link className="btn btn-ghost" href="/work">
               View our work

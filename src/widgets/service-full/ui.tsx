@@ -41,7 +41,7 @@ export function ServiceFull({ service }: { service: Service }) {
           {expanded ? "Show less" : "Read more"}
         </button>
         <Link className="btn btn-solid" href="/#quote">
-          Request a Free Assessment
+          Send Photos for a Free Assessment
         </Link>
         {isSeoServiceSlug(service.slug) ? (
           <Link className="service-more" href={`/services/${service.slug}`}>

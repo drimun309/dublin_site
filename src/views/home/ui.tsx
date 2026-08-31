@@ -20,22 +20,22 @@ export function HomePage() {
           <div className="intro-copy">
             <Reveal>
               <h2>
-                Restoration &amp; chemical cleaning
+                Protect the character of your home
                 <br />
-                for the <em>beauty</em> of your home.
+                and keep <em>Dublin weather</em> out.
               </h2>
             </Reveal>
             <Reveal>
               <p>
-                Specialist façade restoration, traditional lime mortar repointing, and gentle chemical cleaning for
-                Dublin homes. We restore brick and masonry with methods and materials chosen specifically for the wall
-                — so the work lasts, and the house looks like itself, only clearer.
+                Failed mortar and damaged brick allow water into the wall. We diagnose the cause, match the materials
+                to your façade, and repair only what is needed — from lime repointing and brick restoration to careful
+                masonry cleaning.
               </p>
             </Reveal>
             <Reveal>
               <div className="intro-cta">
                 <Link className="btn btn-solid" href="/#quote">
-                  Request a Free Assessment
+                  Send Photos for a Free Assessment
                 </Link>
                 <Link className="btn btn-ghost" href="/services">
                   View services

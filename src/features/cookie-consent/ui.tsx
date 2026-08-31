@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useSyncExternalStore } from "react";
 
 export const COOKIE_CONSENT_KEY = "cookie-consent";
@@ -42,7 +43,7 @@ export function CookieBanner() {
     <div className="cookie-banner" role="dialog" aria-label="Cookie consent" aria-live="polite">
       <p>
         We use cookies for analytics to understand how the site is used and improve our service. You can accept or
-        decline non-essential cookies.
+        decline non-essential cookies. Read our <Link href="/privacy">Privacy Policy</Link>.
       </p>
       <div className="cookie-banner-actions">
         <button type="button" className="btn btn-ghost-ink cookie-banner-reject" onClick={() => choose("rejected")}>

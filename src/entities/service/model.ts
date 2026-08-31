@@ -4,9 +4,6 @@ export const serviceSlugs = [
   "chemical-cleaning",
   "chimney-restoration",
   "fireplace-remodel",
-  "damp-proofing",
-  "roofing",
-  "flat-roof",
 ] as const;
 
 export type ServiceSlug = (typeof serviceSlugs)[number];
@@ -45,7 +42,7 @@ export const services: Service[] = [
       "Cracked sills, worn cornices, loose bricks. We repair and reinstate damaged brickwork so the façade reads as one piece again.",
     paragraphs: [
       "Cracked sills, worn cornices, loose bricks and bulging panels don’t need a full rebuild. We repair and reinstate damaged brick and stonework so the façade reads as one piece again.",
-      "We favour traditional materials (Bath Premix, Portland Premix, York Stone) matched to the building — sympathetic repairs that last Irish weather, not a cheap patch that fails next winter.",
+      "We select repair materials to suit the building and match the surrounding brick or stone, rather than applying one standard mix to every wall.",
     ],
     hero: "/assets/brick-restoration/05-ba-entrance.jpg",
     heroAlt: "Before and after brick restoration at entrance",
@@ -130,49 +127,6 @@ export const services: Service[] = [
     hero: "/assets/fireplace/fp-1.jpg",
     heroAlt: "Fireplace Remodel",
   },
-  {
-    slug: "damp-proofing",
-    title: "Damp Proofing",
-    shortTitle: "Damp Proofing",
-    eyebrow: "Rising damp treatment",
-    summary:
-      "Rising damp and bridged DPCs wreck plaster and timber. We diagnose the path of water and install a proper damp-proof course.",
-    paragraphs: [
-      "Most wall materials are porous. Water in contact with the ground travels up the wall by capillarity — rising damp — until evaporation balances the intake. You often see a tide mark, salts and perished plaster below about a metre.",
-      "A damp-proof course is useless if water can bypass it. Bridging is common when outside ground sits above the DPC, or when plaster and render run down over the line.",
-      "We treat rising damp with chemical or mortar injection suited to the wall, then strip salt-contaminated plaster and replaster so the repair lasts — not just a hole in the brick and a promise.",
-    ],
-    hero: "/assets/damp-proofing/damp-2.jpg",
-    heroAlt: "Damp proofing treatment in Dublin",
-  },
-  {
-    slug: "roofing",
-    title: "Roofing",
-    shortTitle: "Roofing",
-    eyebrow: "Roof & chimney repair",
-    summary:
-      "Small leaks become structural problems. We repair Dublin roofs properly — slates, flashings, chimneys — not a patch that fails next storm.",
-    paragraphs: [
-      "Roof repairs are easy to put off. A tiny leak and a stain on the ceiling can work into the structure and cost far more later.",
-      "We find the path of water and fix it so it does not return. No quick-fixes: sound repairs on the roof you have, whether the issue is slates, flashings, valleys or the chimney stack.",
-    ],
-    hero: "/assets/roofing/roof-1.jpg",
-    heroAlt: "Roof repair work in Dublin",
-  },
-  {
-    slug: "flat-roof",
-    title: "Flat Roof",
-    shortTitle: "Flat Roof",
-    eyebrow: "Waterproofing systems",
-    summary:
-      "Felt, single-ply and liquid membranes for roofs, balconies and gutters — inspected, specified and laid to last.",
-    paragraphs: [
-      "We waterproof new and existing flat roofs and balconies with liquid systems that cure to a seamless, flexible membrane — useful in Irish weather and on awkward details.",
-      "Felt and single-ply roofs from garden rooms to commercial decks get a proper inspection first, then a repair or overlay specified for the damage you actually have.",
-    ],
-    hero: "/assets/flat-roof/flat-1.jpg",
-    heroAlt: "Flat roof waterproofing in Dublin",
-  },
 ];
 
 export const servicesPageSlugs: ServiceSlug[] = [
@@ -198,11 +152,7 @@ export const homeServiceSlugs: ServiceSlug[] = [
   "chemical-cleaning",
 ];
 
-export const extraServiceSlugs: ServiceSlug[] = [
-  "damp-proofing",
-  "roofing",
-  "flat-roof",
-];
+export const extraServiceSlugs: ServiceSlug[] = [];
 
 export function getServicesPageServices() {
   return servicesPageSlugs.map((slug) => getService(slug));

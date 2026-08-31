@@ -17,10 +17,10 @@ export function ServicesPage() {
             <Link href="/">Home</Link> / <span>Our Services</span>
           </p>
           <p className="eyebrow">What we do</p>
-          <h1>Our Services</h1>
+          <h1>Brick Restoration Services in Dublin</h1>
           <p className="section-lead">
-            Masonry, damp and cleaning for Dublin homes and commercial buildings — priced on site, finished
-            properly.
+            Repointing, brick and chimney restoration, fireplace work and careful masonry cleaning for Dublin homes
+            and commercial buildings.
           </p>
           <nav className="services-jump" aria-label="Jump to service">
             {pageServices.map((service) => (

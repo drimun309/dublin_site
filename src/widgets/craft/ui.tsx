@@ -30,9 +30,8 @@ export function Craft() {
           </Reveal>
           <Reveal>
             <p>
-              With 10 years’ experience restoring Dublin façades, we focus on period and modern brickwork. No
-              shortcuts, no guesswork — the right materials, proven techniques, and clear communication from
-              assessment to handover.
+              With 10 years’ experience restoring Dublin façades, we focus on period and modern brickwork. We inspect
+              the cause, specify materials for the wall, and explain the scope clearly from assessment to handover.
             </p>
           </Reveal>
           <Reveal>
@@ -51,22 +50,20 @@ export function Craft() {
               <li>
                 <strong>Traditional Lime &amp; Mortar Matching</strong>
                 <span>
-                  We match traditional lime and cement mortars to seamlessly blend with your existing brickwork without
-                  trapping moisture.
+                  We select traditional lime or suitable cement-lime mortars for the building and carefully match the
+                  existing colour and finish.
                 </span>
               </li>
               <li>
                 <strong>Itemised, Fixed Quotations</strong>
                 <span>
-                  Clear scope of works, exact materials, and transparent pricing. You know exactly what is included
+                  Clear scope of works, specified materials, and transparent pricing. You know what is included
                   before work begins.
                 </span>
               </li>
               <li>
                 <strong>1-Year Workmanship Warranty</strong>
-                <span>
-                  We stand behind our craft with a standard 1-year guarantee designed to withstand Irish weather.
-                </span>
+                <span>Our restoration and repointing workmanship includes a standard 1-year warranty.</span>
               </li>
             </ul>
           </Reveal>

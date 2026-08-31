@@ -1,6 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import Link from "next/link";
 import { formServiceTitles } from "@/entities/service";
 import { useSendLead } from "@/features/send-lead";
 import { Reveal } from "@/shared/ui";
@@ -126,8 +127,12 @@ export function QuoteForm({ sourcePage = "home" }: { sourcePage?: string }) {
 
             <div className="field-full form-footer">
               <button className="btn btn-solid" type="submit" disabled={pending}>
-                {pending ? "Sending assessment request…" : "Request a Free Assessment"}
+                {pending ? "Sending assessment request…" : "Send Photos for a Free Assessment"}
               </button>
+              <p className="form-privacy">
+                By submitting, you ask us to use your details and photos to assess your enquiry. See our{" "}
+                <Link href="/privacy">Privacy Policy</Link>.
+              </p>
               <p className={`form-note${ok ? " is-success" : ""}${error ? " is-error" : ""}`}>{note}</p>
             </div>
           </form>

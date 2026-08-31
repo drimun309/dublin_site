@@ -10,7 +10,9 @@ const img = (
 const otto = (n: number, service: GalleryImage["service"] = "brick-restoration"): GalleryImage =>
   img(
     `/assets/pic/otto/otto-${String(n).padStart(2, "0")}.jpg`,
-    `Dublin Restoration work ${n}`,
+    service === "craft"
+      ? `Dublin Restoration team at work — photo ${n}`
+      : `Brick restoration project in Dublin — photo ${n}`,
     service,
   );
 
@@ -88,7 +90,6 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/brick-repointing/srvc-commercial-brick-restoration.jpeg", "Commercial brick restoration", "brick-repointing"),
   img("/assets/pic/Brick-Work-Before-After.jpg", "Façade before and after restoration", "brick-repointing"),
   img("/assets/pic/brick02-695x300.jpg", "Pointing patch on brick wall", "brick-repointing"),
-  img("/assets/pic/Lime-Mortar-Repointing-in-London.webp", "Lime mortar repointing", "brick-repointing"),
   img("/assets/pic/srvc-commercial-brick-restoration.jpeg", "Commercial brick façade", "brick-repointing"),
   img("/assets/pic/images.jpg", "Brick pointing sample", "brick-repointing"),
   img("/assets/pic/images (1).jpg", "Brickwork sample", "brick-repointing"),
@@ -120,45 +121,6 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/fireplace/fp-2.jpg", "Fireplace remodel", "fireplace-remodel", { featured: true }),
   img("/assets/fireplace/fp-3.jpg", "Fireplace detail", "fireplace-remodel", { featured: true }),
   img("/assets/fireplace/fp-4.jpg", "Custom fireplace", "fireplace-remodel", { featured: true }),
-
-  img("/assets/damp-proofing/damp-1.jpg", "Rising damp treatment", "damp-proofing", { featured: true }),
-  img("/assets/damp-proofing/damp-2.jpg", "Damp proofing in Dublin", "damp-proofing", { featured: true }),
-  img("/assets/damp-proofing/damp-3.jpg", "Damp wall before treatment", "damp-proofing", { featured: true }),
-  img("/assets/damp-proofing/damp-4.jpg", "Damp proof course work", "damp-proofing", { featured: true }),
-  img("/assets/damp-proofing/damp-5.jpg", "Internal damp repair", "damp-proofing"),
-  img("/assets/damp-proofing/damp-6.jpg", "Damp proofing detail", "damp-proofing"),
-  img("/assets/damp-proofing/damp-7.jpg", "Treated damp wall", "damp-proofing"),
-  img("/assets/damp-proofing/damp-8.jpg", "Damp proofing finish", "damp-proofing"),
-
-  img("/assets/roofing/roof-1.jpg", "Roof repair in Dublin", "roofing", { featured: true }),
-  img("/assets/roofing/roof-2.jpg", "Roof and chimney work", "roofing", { featured: true }),
-  img("/assets/roofing/roof-3.jpg", "Roof slates repair", "roofing", { featured: true }),
-  img("/assets/roofing/roof-4.jpg", "Roof flashing repair", "roofing", { featured: true }),
-  img("/assets/roofing/roof-5.jpg", "Completed roof repair", "roofing"),
-  img("/assets/roofing/roof-6.jpg", "Roof maintenance", "roofing"),
-  img("/assets/roofing/roof-7.jpg", "Roofing on Dublin home", "roofing"),
-  img("/assets/roofing/roof-8.jpg", "Roof repair detail", "roofing"),
-  img("/assets/roofing/chimney-1.jpg", "Roof chimney repair", "roofing"),
-  img("/assets/roofing/chimney-2.jpg", "Chimney on repaired roof", "roofing"),
-  img("/assets/roofing/chimney-3.jpg", "Roof stack work", "roofing"),
-  img("/assets/roofing/chimney-4.jpg", "Roofing around chimney", "roofing"),
-  img("/assets/roofing/chimney-5.jpg", "Completed chimney on roof", "roofing"),
-
-  img("/assets/flat-roof/flat-1.jpg", "Flat roof waterproofing", "flat-roof", { featured: true }),
-  img("/assets/flat-roof/flat-2.jpg", "Flat roof overlay", "flat-roof", { featured: true }),
-  img("/assets/flat-roof/flat-3.jpg", "Balcony waterproofing", "flat-roof", { featured: true }),
-  img("/assets/flat-roof/flat-4.jpg", "Liquid membrane roof", "flat-roof", { featured: true }),
-  img("/assets/flat-roof/flat-5.jpg", "Flat roof repair", "flat-roof"),
-  img("/assets/flat-roof/flat-6.jpg", "Felt roof work", "flat-roof"),
-  img("/assets/flat-roof/flat-7.jpg", "Single ply roof", "flat-roof"),
-  img("/assets/flat-roof/flat-8.jpg", "Completed flat roof", "flat-roof"),
-  img("/assets/flat-roof/flat-9.jpg", "Flat roof detail", "flat-roof"),
-  img("/assets/flat-roof/flat-10.jpg", "Waterproofed roof deck", "flat-roof"),
-  img("/assets/flat-roof/flat-11.jpg", "Flat roofing system", "flat-roof"),
-  img("/assets/flat-roof/flat-12.jpg", "Roof membrane finish", "flat-roof"),
-  img("/assets/flat-roof/flat-13.jpg", "Commercial flat roof", "flat-roof"),
-  img("/assets/flat-roof/flat-14.jpg", "New-build flat roof", "flat-roof"),
-  img("/assets/flat-roof/flat-15.jpg", "Flat roof after repair", "flat-roof"),
 
   img("/assets/pic/otto/otto-01.jpg", "Inspecting brickwork on a Dublin home", "craft"),
   otto(2, "craft"),

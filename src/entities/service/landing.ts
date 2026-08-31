@@ -75,7 +75,7 @@ export const serviceLandings: ServiceLanding[] = [
     },
     materials: {
       title: "Materials we use",
-      intro: "Repairs are specified for the wall — not a generic bag mix that fails next winter.",
+      intro: "Repairs are specified for the wall rather than relying on one standard mix for every building.",
       items: [
         "Traditional lime and cement mortars matched to period brickwork",
         "Replacement brick and stone selected to blend with the existing façade",
@@ -105,7 +105,7 @@ export const serviceLandings: ServiceLanding[] = [
       "Professional brick repointing in Dublin. Traditional lime mortar, colour-matched joints and weather-tight finishes for period and modern homes.",
     h1: "Brick Repointing in Dublin",
     lead:
-      "Open mortar joints let rain into the wall. We rake out failed pointing and repoint with a mix matched to your façade — weather-tight, tidy, and built to last Irish weather.",
+      "Open mortar joints let rain into the wall. We rake out failed pointing and repoint with a mix matched to your façade — weather-tight, tidy, and suited to Irish weather.",
     problem: {
       title: "Signs your brickwork needs repointing",
       intro:
@@ -155,7 +155,7 @@ export const serviceLandings: ServiceLanding[] = [
       },
       {
         q: "How long does repointing last?",
-        a: "With the correct mix and preparation, quality repointing should last decades — not just a few seasons.",
+        a: "Service life depends on the wall, exposure and maintenance. Correct preparation and a compatible mortar give the repair the best chance of lasting for many years.",
       },
       {
         q: "Can you repoint part of a wall only?",
@@ -165,10 +165,10 @@ export const serviceLandings: ServiceLanding[] = [
   },
   {
     slug: "chemical-cleaning",
-    metaTitle: "Brick & Stone Chemical Cleaning Dublin",
+    metaTitle: "Brick & Masonry Cleaning Dublin",
     metaDescription:
-      "Gentle brick and stone chemical cleaning in Dublin. Remove pollution, algae and soot without damaging the masonry surface.",
-    h1: "Brick & Stone Chemical Cleaning in Dublin",
+      "Brick and masonry cleaning in Dublin using controlled chemical treatment and low-pressure rinsing for pollution, algae and soot.",
+    h1: "Brick & Masonry Cleaning in Dublin",
     lead:
       "Pollution, algae and soot make brick look tired and hold moisture against the wall. We clean façades with the right chemistry — not a blast that scars the surface.",
     problem: {
