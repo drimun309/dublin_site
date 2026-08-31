@@ -6,7 +6,7 @@ export const site = {
   phoneHref: "tel:+353834170933",
   // ponytail: real Facebook page TBD — empty until brand page is ready
   facebook: "",
-  instagram: "https://www.instagram.com/dublin.restoration/",
+  instagram: "https://www.instagram.com/dublin_restoration/",
   hoursWeek: "Mon–Sun: 8am–6pm",
   logo: "/assets/logo.png",
 } as const;
