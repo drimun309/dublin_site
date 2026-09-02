@@ -7,6 +7,7 @@ export const site = {
   email: "restorationindublin@gmail.com",
   phone: "+353 83 417 0933",
   phoneHref: "tel:+353834170933",
+  whatsapp: "https://wa.me/353834170933",
   areaServed: "Dublin City and County Dublin",
   socialImage: "/assets/drone-brick-house-poster.jpg",
   // ponytail: real Facebook page TBD — empty until brand page is ready
