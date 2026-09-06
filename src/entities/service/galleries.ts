@@ -17,6 +17,12 @@ const otto = (n: number, service: GalleryImage["service"] = "brick-restoration")
   );
 
 export const galleryImages: GalleryImage[] = [
+  img(
+    "/assets/gallery/dublin-facade-before-after-site.jpg",
+    "Before and after brick façade cleaning and restoration on a Dublin red-brick house",
+    "brick-restoration",
+    { featured: true, home: true },
+  ),
   img("/assets/brick-restoration/01.jpg", "Brick restoration work", "brick-restoration"),
   img("/assets/brick-restoration/02-ba-spalling.jpg", "Before and after: spalling brick repair", "brick-restoration", {
     featured: true,
@@ -140,6 +146,11 @@ export function imagesForService(slug: ServiceSlug, featuredOnly = false) {
 }
 
 const homeGalleryOrder: GalleryImage[] = [
+  img(
+    "/assets/gallery/dublin-facade-before-after-site.jpg",
+    "Before and after brick façade cleaning and restoration on a Dublin red-brick house",
+    "brick-restoration",
+  ),
   img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing"),
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
