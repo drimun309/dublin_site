@@ -4,10 +4,16 @@ import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { site } from "@/shared/config";
 
+const heroVideos = [
+  "/assets/hero-brick-site.mp4",
+  "/assets/brick-pressure-wash.mp4",
+] as const;
+
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const spotRef = useRef<HTMLDivElement>(null);
+  const indexRef = useRef(0);
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -36,14 +42,25 @@ export function Hero() {
       window.addEventListener("scroll", onScroll, { passive: true });
     }
 
+    const playCurrent = () => {
+      if (!video) return;
+      hero.classList.add("is-video-ready");
+      if (reduceMotion) video.pause();
+      else video.play().catch(() => {});
+    };
+
+    const onEnded = () => {
+      if (!video || reduceMotion) return;
+      indexRef.current = (indexRef.current + 1) % heroVideos.length;
+      video.src = heroVideos[indexRef.current];
+      video.load();
+      video.play().catch(() => {});
+    };
+
     if (video) {
-      const start = () => {
-        hero.classList.add("is-video-ready");
-        if (reduceMotion) video.pause();
-        else video.play().catch(() => {});
-      };
-      if (video.readyState >= 2) start();
-      else video.addEventListener("loadeddata", start, { once: true });
+      if (video.readyState >= 2) playCurrent();
+      else video.addEventListener("loadeddata", playCurrent, { once: true });
+      video.addEventListener("ended", onEnded);
     }
 
     const onMove = (event: PointerEvent) => {
@@ -63,6 +80,7 @@ export function Hero() {
     return () => {
       window.removeEventListener("scroll", onScroll);
       hero.removeEventListener("pointermove", onMove);
+      video?.removeEventListener("ended", onEnded);
     };
   }, []);
 
@@ -72,18 +90,16 @@ export function Hero() {
         <video
           className="hero-video"
           ref={videoRef}
-          poster="/assets/drone-brick-house-poster.jpg"
+          poster="/assets/hero-brick-site-poster.jpg"
           autoPlay
           muted
-          loop
           playsInline
           preload="metadata"
-        >
-          <source src="/assets/drone-brick-house.mp4" type="video/mp4" />
-        </video>
+          src={heroVideos[0]}
+        />
         <img
           className="hero-fallback"
-          src="/assets/drone-brick-house-poster.jpg"
+          src="/assets/hero-brick-site-poster.jpg"
           alt=""
           width={1280}
           height={720}
@@ -115,7 +131,9 @@ export function Hero() {
           <Link className="btn btn-solid" href="/#quote">
             Send Photos for a Free Assessment
           </Link>
-          <a className="btn btn-ghost" href={site.phoneHref}>Call {site.phone}</a>
+          <a className="btn btn-ghost" href={site.phoneHref}>
+            Call {site.phone}
+          </a>
         </div>
       </div>
 
