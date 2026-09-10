@@ -108,6 +108,10 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/images.jpg", "Brick pointing sample", "brick-repointing"),
   img("/assets/pic/images (1).jpg", "Brickwork sample", "brick-repointing"),
 
+  img("/assets/pressure-washing/brick-chemical-clean-in-progress.jpg", "Brick chemical cleaning in progress under a bay window in Dublin", "chemical-cleaning", {
+    featured: true,
+    home: true,
+  }),
   img("/assets/pressure-washing/pw-1.jpg", "Cleaned brick surface", "chemical-cleaning", { featured: true }),
   img("/assets/pressure-washing/pw-2.jpg", "Brick after washing", "chemical-cleaning", { featured: true }),
   img("/assets/pressure-washing/pw-3.jpg", "Stone before clean", "chemical-cleaning", { featured: true }),
@@ -169,6 +173,11 @@ const homeGalleryOrder: GalleryImage[] = [
     "/assets/brick-repointing/pillar-repointing-in-progress.jpg",
     "Brick pillar repointing in progress showing fresh mortar beside old joints",
     "brick-repointing",
+  ),
+  img(
+    "/assets/pressure-washing/brick-chemical-clean-in-progress.jpg",
+    "Brick chemical cleaning in progress under a bay window in Dublin",
+    "chemical-cleaning",
   ),
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
