@@ -61,6 +61,10 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/bri/bri-03.jpg", "Weathered brick needing restoration", "brick-restoration"),
   img("/assets/pic/bri/bri-04.jpg", "Brick crack and failed mortar", "brick-restoration"),
 
+  img("/assets/brick-repointing/gable-repointing-in-progress.jpg", "Brick repointing in progress on a Dublin gable with scaffolding and tools", "brick-repointing", {
+    featured: true,
+    home: true,
+  }),
   img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing", {
     featured: true,
     home: true,
@@ -152,6 +156,11 @@ const homeGalleryOrder: GalleryImage[] = [
     "brick-restoration",
   ),
   img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing"),
+  img(
+    "/assets/brick-repointing/gable-repointing-in-progress.jpg",
+    "Brick repointing in progress on a Dublin gable with scaffolding and tools",
+    "brick-repointing",
+  ),
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
   img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration"),
