@@ -29,7 +29,8 @@ const innerLinks = [
 const servicesMobileLinks = [
   { href: "/services", label: "Services" },
   { href: "/services/brick-repointing", label: "Brick Repointing" },
-  { href: "/services/chemical-cleaning", label: "Chemical Cleaning" },
+  { href: "/services/chemical-cleaning", label: "Brick Cleaning" },
+  { href: "/services/chimney-restoration", label: "Chimney Repairs" },
   { href: "/work", label: "Our Work" },
   { href: "/#quote", label: "Assessment" },
 ];

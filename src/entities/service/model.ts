@@ -75,28 +75,28 @@ export const services: Service[] = [
   },
   {
     slug: "chemical-cleaning",
-    title: "Brick and Stone Chemical Cleaning",
-    shortTitle: "Chemical Cleaning",
+    title: "Brick Cleaning",
+    shortTitle: "Brick Cleaning",
     eyebrow: "Façade cleaning",
     summary:
-      "Pollution, algae and soot dull brick and stone. Careful chemical cleaning brings the façade back without chewing the surface.",
+      "Pollution, algae and soot dull brick and stone. Careful brick cleaning brings the façade back without chewing the surface.",
     paragraphs: [
-      "Pollution, algae and soot make brick look tired and hold moisture against the wall. We clean façades, floors and masonry with the right chemistry for the stone — not a blast that scars the surface.",
+      "Pollution, algae and soot make brick look tired and hold moisture against the wall. We clean façades and masonry with the right chemistry — not a blast that scars the surface.",
       "Domestic or commercial: restore curb appeal and stop dirt accelerating decay.",
     ],
     hero: "/assets/pressure-washing/pw-1.jpg",
-    heroAlt: "Brick and Stone Chemical Cleaning",
+    heroAlt: "Brick cleaning on a Dublin façade",
     homeCard: {
       src: "/assets/pressure-washing/pw-1.jpg",
-      alt: "Brick and Stone Chemical Cleaning",
+      alt: "Brick cleaning on a Dublin façade",
       summary:
-        "Pollution, algae and soot dull brick and stone. Careful chemical cleaning brings the façade back without chewing the surface.",
+        "Pollution, algae and soot dull brick and stone. Careful brick cleaning brings the façade back without chewing the surface.",
     },
   },
   {
     slug: "chimney-restoration",
-    title: "Chimney Restoration",
-    shortTitle: "Chimney",
+    title: "Chimney Repairs",
+    shortTitle: "Chimney Repairs",
     eyebrow: "Repair & rebuild",
     summary:
       "Leaning stacks, loose bricks and lost mortar. We repair, tuckpoint or rebuild chimneys matched to your façade.",
@@ -105,10 +105,10 @@ export const services: Service[] = [
       "We also demolish and seal off unused chimneys, and repair fireboxes indoors when the hearth needs the same care as the stack outside.",
     ],
     hero: "/assets/chimney/ba-stack.jpg",
-    heroAlt: "Chimney restoration before and after",
+    heroAlt: "Chimney repairs before and after in Dublin",
     homeCard: {
       src: "/assets/chimney/ba-stack.jpg",
-      alt: "Chimney restoration before and after",
+      alt: "Chimney repairs before and after in Dublin",
       summary:
         "Leaning stacks, loose bricks and lost mortar. We repair, tuckpoint or rebuild chimneys matched to your façade.",
     },
@@ -140,8 +140,8 @@ export const servicesPageSlugs: ServiceSlug[] = [
 export const formServiceTitles = [
   "Brick Repointing",
   "Brick Restoration",
-  "Chemical Cleaning",
-  "Chimney Restoration",
+  "Brick Cleaning",
+  "Chimney Repairs",
   "Fireplace Remodel",
 ] as const;
 

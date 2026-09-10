@@ -102,10 +102,10 @@ export const serviceLandings: ServiceLanding[] = [
     slug: "brick-repointing",
     metaTitle: "Brick Repointing Dublin",
     metaDescription:
-      "Professional brick repointing in Dublin. Traditional lime mortar, colour-matched joints and weather-tight finishes for period and modern homes.",
+      "Brick repointing in Dublin for failed joints and flush pointing. Lime mortar matched to your façade — weather-tight work for period and modern homes. Free assessment.",
     h1: "Brick Repointing in Dublin",
     lead:
-      "Open mortar joints let rain into the wall. We rake out failed pointing and repoint with a mix matched to your façade — weather-tight, tidy, and suited to Irish weather.",
+      "Crumbling mortar and open joints let rain into the wall. We rake out failed pointing and repoint brickwork in Dublin with a lime or matched mix — tidy flush joints built for Irish weather.",
     problem: {
       title: "Signs your brickwork needs repointing",
       intro:
@@ -165,16 +165,16 @@ export const serviceLandings: ServiceLanding[] = [
   },
   {
     slug: "chemical-cleaning",
-    metaTitle: "Brick & Masonry Cleaning Dublin",
+    metaTitle: "Brick Cleaning Dublin",
     metaDescription:
-      "Brick and masonry cleaning in Dublin using controlled chemical treatment and low-pressure rinsing for pollution, algae and soot.",
-    h1: "Brick & Masonry Cleaning in Dublin",
+      "Brick cleaning in Dublin for pollution, algae and façade staining. Controlled chemical treatment and low-pressure rinsing — not harsh sandblasting. Free assessment.",
+    h1: "Brick Cleaning in Dublin",
     lead:
-      "Pollution, algae and soot make brick look tired and hold moisture against the wall. We clean façades with the right chemistry — not a blast that scars the surface.",
+      "Dirty brick and stained façades hold moisture and make a Dublin home look neglected. We clean brick and masonry with controlled chemistry and a gentle rinse — without chewing the surface.",
     problem: {
-      title: "When chemical cleaning helps",
+      title: "When brick and façade cleaning helps",
       intro:
-        "Built-up dirt holds moisture and hides defects. Cleaning restores curb appeal and makes underlying brick problems visible before they worsen.",
+        "Built-up dirt holds moisture and hides defects. Brick cleaning restores curb appeal and makes underlying brick problems visible before they worsen.",
       signs: [
         "Black carbon staining or pollution on the upper façade",
         "Green algae or biological growth on north-facing walls",
@@ -230,14 +230,14 @@ export const serviceLandings: ServiceLanding[] = [
   },
   {
     slug: "chimney-restoration",
-    metaTitle: "Chimney Restoration Dublin",
+    metaTitle: "Chimney Repairs Dublin",
     metaDescription:
-      "Chimney repair and restoration in Dublin. Fix leaning stacks, loose bricks, failed mortar and leaking pots with matched brickwork.",
-    h1: "Chimney Restoration in Dublin",
+      "Chimney repairs in Dublin for leaning stacks, loose bricks, failed mortar and leaking pots. Matched brickwork, tuckpointing or rebuild — free assessment.",
+    h1: "Chimney Repairs in Dublin",
     lead:
-      "Leaning stacks, loose bricks and lost mortar are common on Dublin roofs. We repair, tuckpoint or rebuild chimneys with mortar and brick matched to your façade.",
+      "Leaning stacks, loose bricks and lost mortar are common on Dublin roofs. We repair chimneys — from repointing and pots to full stack rebuilds — with brick and mortar matched to your façade.",
     problem: {
-      title: "Common chimney problems",
+      title: "Common chimney repair problems",
       intro:
         "Chimneys sit in the worst weather on the roof. Small defects quickly become leaks, loose pots and unsafe stacks.",
       signs: [

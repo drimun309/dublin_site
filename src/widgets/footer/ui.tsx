@@ -64,7 +64,7 @@ export function Footer() {
           <ul>
             {servicesPageSlugs.map((slug) => {
               const service = getService(slug);
-              const label = slug === "chemical-cleaning" ? "Chemical Cleaning" : service.title;
+              const label = service.title;
               return (
                 <li key={slug}>
                   <Link href={serviceHref(slug)}>{label}</Link>
