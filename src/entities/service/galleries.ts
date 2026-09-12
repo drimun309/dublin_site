@@ -23,6 +23,12 @@ export const galleryImages: GalleryImage[] = [
     "brick-restoration",
     { featured: true, home: true },
   ),
+  img(
+    "/assets/brick-restoration/decorative-pillar-before-after.jpg",
+    "Decorative brick pillar before and after restoration in Dublin",
+    "brick-restoration",
+    { featured: true, home: true },
+  ),
   img("/assets/brick-restoration/01.jpg", "Brick restoration work", "brick-restoration"),
   img("/assets/brick-restoration/02-ba-spalling.jpg", "Before and after: spalling brick repair", "brick-restoration", {
     featured: true,
@@ -62,10 +68,6 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/bri/bri-04.jpg", "Brick crack and failed mortar", "brick-restoration"),
 
   img("/assets/brick-repointing/gable-repointing-in-progress.jpg", "Brick repointing in progress on a Dublin gable with scaffolding and tools", "brick-repointing", {
-    featured: true,
-    home: true,
-  }),
-  img("/assets/brick-repointing/decorative-pillar-before-after.jpg", "Decorative brick pillar before and after repointing in Dublin", "brick-repointing", {
     featured: true,
     home: true,
   }),
@@ -171,15 +173,15 @@ const homeGalleryOrder: GalleryImage[] = [
     "Before and after brick façade cleaning and restoration on a Dublin red-brick house",
     "brick-restoration",
   ),
+  img(
+    "/assets/brick-restoration/decorative-pillar-before-after.jpg",
+    "Decorative brick pillar before and after restoration in Dublin",
+    "brick-restoration",
+  ),
   img("/assets/brick-repointing/dublin-facade-before-after.jpg", "Dublin house brick façade before and after repointing", "brick-repointing"),
   img(
     "/assets/brick-repointing/gable-repointing-in-progress.jpg",
     "Brick repointing in progress on a Dublin gable with scaffolding and tools",
-    "brick-repointing",
-  ),
-  img(
-    "/assets/brick-repointing/decorative-pillar-before-after.jpg",
-    "Decorative brick pillar before and after repointing in Dublin",
     "brick-repointing",
   ),
   img(
