@@ -65,6 +65,10 @@ export const galleryImages: GalleryImage[] = [
     featured: true,
     home: true,
   }),
+  img("/assets/brick-repointing/decorative-pillar-before-after.jpg", "Decorative brick pillar before and after repointing in Dublin", "brick-repointing", {
+    featured: true,
+    home: true,
+  }),
   img("/assets/brick-repointing/pillar-repointing-in-progress.jpg", "Brick pillar repointing in progress showing fresh mortar beside old joints", "brick-repointing", {
     featured: true,
     home: true,
@@ -171,6 +175,11 @@ const homeGalleryOrder: GalleryImage[] = [
   img(
     "/assets/brick-repointing/gable-repointing-in-progress.jpg",
     "Brick repointing in progress on a Dublin gable with scaffolding and tools",
+    "brick-repointing",
+  ),
+  img(
+    "/assets/brick-repointing/decorative-pillar-before-after.jpg",
+    "Decorative brick pillar before and after repointing in Dublin",
     "brick-repointing",
   ),
   img(
