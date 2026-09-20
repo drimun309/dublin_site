@@ -125,6 +125,10 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/pic/google-theme-02.jpg", "Cleaned masonry façade", "chemical-cleaning"),
   img("/assets/pic/google-theme-06.jpg", "Brick after chemical clean", "chemical-cleaning"),
 
+  img("/assets/chimney/roof-chimney-before-after.jpg", "Before and after chimney stack repair on a Dublin tiled roof", "chimney-restoration", {
+    featured: true,
+    home: true,
+  }),
   img("/assets/chimney/before-after-stack-repoint.jpg", "Chimney stack before and after repointing and flaunching repair in Dublin", "chimney-restoration", {
     featured: true,
     home: true,
@@ -195,6 +199,7 @@ const homeGalleryOrder: GalleryImage[] = [
     "chemical-cleaning",
   ),
   img("/assets/brick-restoration/05-ba-entrance.jpg", "Entrance brick restoration", "brick-restoration"),
+  img("/assets/chimney/roof-chimney-before-after.jpg", "Before and after chimney stack repair on a Dublin tiled roof", "chimney-restoration"),
   img("/assets/chimney/before-after-stack-repoint.jpg", "Chimney stack before and after repointing and flaunching repair in Dublin", "chimney-restoration"),
   img("/assets/chimney/ba-stack.jpg", "Chimney before and after", "chimney-restoration"),
   img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration"),
