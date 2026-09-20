@@ -10,7 +10,10 @@ export function ServiceFull({ service }: { service: Service }) {
   const { copyRef, mediaRef, bodyRef, expanded, clamped, toggle } = useServiceReadMore();
   const gallery = imagesForService(service.slug, true);
   const fallback = imagesForService(service.slug);
-  const photos = (gallery.length ? gallery : fallback).slice(0, 16);
+  // ponytail: hero already shown above — drop same src from gallery strip
+  const photos = (gallery.length ? gallery : fallback)
+    .filter((image) => image.src !== service.hero)
+    .slice(0, 16);
 
   return (
     <article className={`service-full${expanded ? " is-expanded" : ""}`} id={service.slug}>

@@ -6,8 +6,15 @@ import { QuoteForm } from "@/widgets/quote-form";
 
 export function ServiceLandingPage({ landing }: { landing: ServiceLanding }) {
   const service = getService(landing.slug);
-  const photos = imagesForService(landing.slug, true).slice(0, 8);
-  const fallbackPhotos = photos.length ? photos : imagesForService(landing.slug).slice(0, 8);
+  // ponytail: hero already shown above — drop same src from gallery strip
+  const photos = imagesForService(landing.slug, true)
+    .filter((image) => image.src !== service.hero)
+    .slice(0, 8);
+  const fallbackPhotos = photos.length
+    ? photos
+    : imagesForService(landing.slug)
+        .filter((image) => image.src !== service.hero)
+        .slice(0, 8);
 
   return (
     <>
