@@ -62,7 +62,6 @@ export const galleryImages: GalleryImage[] = [
     featured: true,
     home: true,
   }),
-  img("/assets/pic/bri/bri-01.jpg", "Stepped crack in red brick wall", "brick-restoration", { featured: true }),
   img("/assets/pic/bri/bri-02.jpg", "Damaged brickwork before repair", "brick-restoration"),
   img("/assets/pic/bri/bri-03.jpg", "Weathered brick needing restoration", "brick-restoration"),
   img("/assets/pic/bri/bri-04.jpg", "Brick crack and failed mortar", "brick-restoration"),
