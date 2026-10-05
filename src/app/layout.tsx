@@ -62,7 +62,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     image: `${site.url}${site.socialImage}`,
     logo: `${site.url}${site.logo}`,
     email: site.email,
-    telephone: site.phoneIntl,
     description: site.description,
     areaServed: { "@type": "AdministrativeArea", name: site.areaServed },
     openingHours: "Mo-Su 08:00-18:00",

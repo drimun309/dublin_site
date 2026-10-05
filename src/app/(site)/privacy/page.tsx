@@ -42,7 +42,7 @@ export default function PrivacyPage() {
         <h2>Who controls your data</h2>
         <p>
           {site.name} is responsible for the personal data described in this policy. Contact us at{" "}
-          <a href={`mailto:${site.email}`}>{site.email}</a> or <a href={site.phoneHref}>{site.phone}</a>.
+          <a href={`mailto:${site.email}`}>{site.email}</a>.
         </p>
 
         <h2>What we collect</h2>
