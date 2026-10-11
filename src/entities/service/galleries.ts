@@ -150,7 +150,6 @@ export const galleryImages: GalleryImage[] = [
   img("/assets/chimney/otto-14.jpg", "Chimney on site", "chimney-restoration"),
   img("/assets/chimney/repair.jpg", "Brick chimney repair", "chimney-restoration", { featured: true }),
   img("/assets/chimney/repairs.jpeg", "Chimney repairs", "chimney-restoration"),
-  img("/assets/chimney/roof.jpg", "Chimney on roof", "chimney-restoration", { featured: true }),
   img("/assets/chimney/stack-cowl.png", "Brick chimney stack with cowl on Dublin roof", "chimney-restoration", {
     featured: true,
   }),
