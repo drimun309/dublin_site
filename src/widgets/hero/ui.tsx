@@ -131,6 +131,9 @@ export function Hero() {
           <Link className="btn btn-solid" href="/#quote">
             Send Photos for a Free Assessment
           </Link>
+          <a className="btn btn-ghost" href={site.phoneHref}>
+            Call {site.phone}
+          </a>
         </div>
       </div>
 
